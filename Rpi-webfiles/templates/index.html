@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>籃球管理系統</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="main">
+				<h1>籃球管理系統</h1>
+				<button onclick="get_ball(event)">借</button>
+				<button>還</button>
+				<button class="setting">設置</button>
+				<div id="weather">
+					<p id="temp">...</p>
+					<p id="type">...</p>
+					<p id="rain">...</p>
+				</div>
+				<p id="warning"></p>
+			</div>
+		</div>
+	<script type="text/javascript">
+		var temp = document.getElementById("temp");
+		var type = document.getElementById("type");
+		var rain = document.getElementById("rain");
+		var warning_text = document.getElementById("warning");
+		var rainning_count, weather_type, temperature;
+		
+		function refresh_weather() {
+			$.ajax({
+				url: "/get_weather",
+				method: "GET",
+				data: {}
+			}).done(function(response) {
+					temp.innerHTML = response.temp;
+					type.innerHTML = response.type;
+					rain.innerHTML = response.rain;
+					rainning_count = rain.innerHTML;
+					weather_type = type.innerHTML;
+					temperature = temp.innerHTML;
+			});
+		}
+		setInterval(refresh_weather(), 1000 * 60 * 60);
+		
+		
+		function get_ball(event) {
+			/**if (detect_rainning_count() == true || detect_temperature() == true) {
+				warning_text.innerHTML = "天氣不好，所以借球服務巳停止"; 
+				console.log(rainning_count, weather_type, temperature);
+			} else {
+			**/
+			get_ball_borrow();
+		/**
+			}
+		**/
+		}
+
+		function get_ball_borrow(event) {
+			window.open("/camera_recognition", "_self");
+		}
+		function detect_rainning_count() {
+			weather_type = weather_type.replace("mm", "");
+			weather_type = parseInt(weather_type);
+			if (weather_type >= 3) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function detect_temperature() {
+			temperature = temperature.replace("℃", "");
+			if (temperature >= 30) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+	</script>
+	</body>	
+</html>
