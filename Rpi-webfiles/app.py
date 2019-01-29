@@ -7,7 +7,7 @@ import requests
 
 app = Flask(__name__)
 _ischecked = False
-face_cascade = cv2.CascadeClassifier('../libs/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
 
 
 def frame(cap):
@@ -17,7 +17,6 @@ def frame(cap):
 		_, frame = cap.read()
 		image = frame.copy()
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		"""
 		rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
 		for(x, y, w, h) in rects:
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -31,11 +30,10 @@ def frame(cap):
 				last_time = 0
 				
 		elif time.time() - last_time > 3:
-			cv2.imwrite("/home/pi/workspace/Rpi-webfiles/static/temp.jpg", image)
+			cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
 			_ischecked = True
 			break
-		
-		"""
+
 		_, jpg = cv2.imencode('.jpg', gray)
 		yield(b'--frame\r\n'
 			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
