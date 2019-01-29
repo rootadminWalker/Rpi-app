@@ -34,7 +34,7 @@ def frame(cap):
 			_ischecked = True
 			break
 
-		_, jpg = cv2.imencode('.jpg', gray)
+		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
 			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
 			  b'\r\n\r\n')
