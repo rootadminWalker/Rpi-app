@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	background-color: #acd6ff;
+	background-image: url({{url_for("static", filename="background.jpg")}})
 }
 
 html, body, h1, button {
