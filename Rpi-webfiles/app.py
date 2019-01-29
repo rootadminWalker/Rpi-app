@@ -11,11 +11,12 @@ face_cascade = cv2.CascadeClassifier('../libs/haarcascade_frontalface_default.xm
 
 
 def frame(cap):
-	global _ischecked
+	global _ischecked, face_cascade
 	last_time = 0
 	while True:
 		_, frame = cap.read()
 		image = frame.copy()
+		"""
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
 		for(x, y, w, h) in rects:
@@ -34,7 +35,8 @@ def frame(cap):
 			_ischecked = True
 			break
 		
-		_, jpg = cv2.imencode('.jpg', image)
+		"""
+		_, jpg = cv2.imencode('.jpg', gray)
 		yield(b'--frame\r\n'
 			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
 			  b'\r\n\r\n')
