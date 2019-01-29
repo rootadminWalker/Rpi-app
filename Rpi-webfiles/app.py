@@ -9,6 +9,7 @@ app = Flask(__name__)
 _ischecked = False
 face_cascade = cv2.CascadeClassifier('../libs/haarcascade_frontalface_default.xml')
 
+
 def frame(cap):
 	global _ischecked
 	last_time = 0
@@ -40,15 +41,18 @@ def frame(cap):
 			  b'\r\n\r\n')
 	cap.release()
 
+
 def send_face_image():
 	URL = "http://192.168.141.4:4580/recv_image"
 	files = {'media': open('/home/pi/workspace/Rpi-webfiles/static/temp', "rb")}
 	req = requests.post(URL, files=files)
 	user = req.text
 
+
 @app.route("/")
 def index():
 	return render_template("index.html")
+
 
 @app.route("/get_weather")
 def get_weather():
@@ -58,21 +62,25 @@ def get_weather():
 	data['type'] = Crawler.find(s, '<span class="location">', '</span>')
 	data['rain'] = Crawler.find(s, '<span class="rain">', '</span>')
 	return jsonify(data)
-	
+
+
 @app.route("/camera_recognition")
 def camera_recognition():
 	global _ischecked
 	_ischecked = False
 	return render_template("recognition.html")
 
+
 @app.route("/welcome")
 def welcome():
 	return "welcome Thomas"
+
 
 @app.route("/video_feed")
 def video_feed():
 	cap = cv2.VideoCapture(0)
 	return Response(frame(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 @app.route("/success", methods=["GET", "POST"])
 def success():
@@ -89,9 +97,11 @@ def success():
 def recognize_image():
 	return render_template("processings_face.html")
 
+
 @app.route("/check_user")
 def check_user():
 	return "1"
+
 
 @app.context_processor
 def override_url_for():
