@@ -3,6 +3,7 @@ import os
 import Crawler
 import cv2
 import time
+import requests
 
 app = Flask(__name__)
 _ischecked = False

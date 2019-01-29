@@ -1,2 +1,2 @@
 # Rpi-app
-Raspberry pi basketball borrower system
+Raspberry pi basketball browser system
