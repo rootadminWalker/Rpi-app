@@ -32,7 +32,6 @@ def frame(cap):
 		elif time.time() - last_time > 3:
 			cv2.imwrite("/home/pi/workspace/Rpi-webfiles/static/temp.jpg", image)
 			_ischecked = True
-			send_face_image()
 			break
 		
 		_, jpg = cv2.imencode('.jpg', image)
@@ -41,12 +40,6 @@ def frame(cap):
 			  b'\r\n\r\n')
 	cap.release()
 
-
-def send_face_image():
-	URL = "http://192.168.141.4:4580/recv_image"
-	files = {'media': open('/home/pi/workspace/Rpi-webfiles/static/temp', "rb")}
-	req = requests.post(URL, files=files)
-	user = req.text
 
 
 @app.route("/")
