@@ -16,8 +16,8 @@ def frame(cap):
 	while True:
 		_, frame = cap.read()
 		image = frame.copy()
-		"""
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+		"""
 		rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
 		for(x, y, w, h) in rects:
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
