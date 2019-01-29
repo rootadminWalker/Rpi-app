@@ -71,7 +71,7 @@ def welcome():
 
 @app.route("/video_feed")
 def video_feed():
-	cap = cv2.VideoCapture(0)
+	cap = cv2.VideoCapture(1)
 	return Response(frame(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
