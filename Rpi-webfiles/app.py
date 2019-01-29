@@ -93,6 +93,7 @@ def success():
 		data["check"] = _ischecked
 		return jsonify(data)
 
+
 @app.route("/recognize_image")
 def recognize_image():
 	return render_template("processings_face.html")
