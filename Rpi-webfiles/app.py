@@ -41,6 +41,10 @@ def frame(cap):
 	cap.release()
 
 
+def send_image():
+	URL = ""
+
+
 @app.route("/")
 def index():
 	return render_template("index.html")
@@ -76,14 +80,9 @@ def video_feed():
 
 @app.route("/success", methods=["GET", "POST"])
 def success():
-	global _ischecked
-	if request.method == "POST":
-		return request.json['check']
-		
-	else:
-		data = {} 	
-		data["check"] = _ischecked
-		return jsonify(data)
+	data = {}
+	data["check"] = _ischecked
+	return jsonify(_ischecked)
 
 
 @app.route("/recognize_image")
@@ -93,7 +92,10 @@ def recognize_image():
 
 @app.route("/check_user")
 def check_user():
-	return "1"
+	data = {}
+	data["result"] = "1"
+	return jsonify(data)
+
 
 
 @app.context_processor
