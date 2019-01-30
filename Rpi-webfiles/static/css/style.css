@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	background-color: #acd6ff;
-   	background-image: url("../img/background.jpg")
+   	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/background.jpg")
 }
 
 html, body, h1, button {
@@ -21,6 +21,7 @@ h1 {
 	margin: 0;
 	text-align: center;
 	line-height: 64px;
+	color: white;
 }
 
 #main button {
