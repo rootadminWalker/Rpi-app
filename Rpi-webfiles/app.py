@@ -8,6 +8,7 @@ import requests
 app = Flask(__name__)
 _ischecked = False
 face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
+user = False
 
 
 def frame(cap):
@@ -42,10 +43,11 @@ def frame(cap):
 
 
 def send_image():
+	global user
 	URL = "http://192.168.142.21:4000"
 	files = {'media': open("/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
-	user = req.text
+	user = req.json()
 
 
 
@@ -100,6 +102,12 @@ def check_user():
 	data["result"] = "1"
 	return jsonify(data)
 
+
+@app.route('/get_face_count')
+def get_face_count():
+	global user
+	if user:
+		return render_template("Success.html")
 
 
 @app.context_processor
