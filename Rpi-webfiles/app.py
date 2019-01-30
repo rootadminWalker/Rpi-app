@@ -44,7 +44,7 @@ def frame(cap):
 
 def send_image():
 	global user
-	URL = "http://192.168.142.21:4000"
+	URL = "http://192.168.170.112:4000"
 	files = {'media': open("/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
 	user = req.json()
