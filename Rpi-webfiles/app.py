@@ -82,7 +82,7 @@ def video_feed():
 def success():
 	data = {}
 	data["check"] = _ischecked
-	return jsonify(_ischecked)
+	return jsonify(data)
 
 
 @app.route("/recognize_image")
