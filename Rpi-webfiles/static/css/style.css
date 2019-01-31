@@ -85,10 +85,13 @@ p {
 }
 
 #problem_camera {
-    border: 5px 20px;
+    font-size: 24px;
+    border: 1px solid white;
+    padding: 5px 20px;
     color: white;
     text-decoration: none;
 }
 #problem_camera:hover {
     background-color: darkorange;
+    transition: all 0.5s ease;
 }
