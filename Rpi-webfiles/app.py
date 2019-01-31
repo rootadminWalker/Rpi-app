@@ -55,6 +55,11 @@ def index():
 	return render_template("index.html")
 
 
+@app.route("/return_ball")
+def return_ball():
+	return render_template("return_ball.html")
+
+
 @app.route("/get_weather")
 def get_weather():
 	data = {}
