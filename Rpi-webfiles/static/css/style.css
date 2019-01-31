@@ -49,6 +49,13 @@ h1 {
 	right: 25px;
 	top: 214px;
 }
+#main .cancel {
+    position: absolute;
+    float: right;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+}
 
 #warning {
 	font-size: 24px;
