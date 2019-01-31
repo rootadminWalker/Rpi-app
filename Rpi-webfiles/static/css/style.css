@@ -51,7 +51,7 @@ h1 {
 	top: 214px;
 }
 
-#container .cancel {
+.cancel {
     position: absolute;
     text-decoration: none;
     border: 1px solid white;
@@ -60,7 +60,7 @@ h1 {
     float: right;
     margin-top 30px;
 }
-#container .cancel:hover {
+.cancel:hover {
     background: darkorange;
 }
 
