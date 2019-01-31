@@ -49,7 +49,6 @@ def send_image():
 	user = req.json()
 
 
-
 @app.route("/")
 def index():
 	return render_template("index.html")

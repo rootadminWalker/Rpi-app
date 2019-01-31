@@ -52,6 +52,7 @@ h1 {
 }
 
 .cancel {
+    position: relative;
     text-decoration: none;
     border: 1px solid white;
     color: white;
