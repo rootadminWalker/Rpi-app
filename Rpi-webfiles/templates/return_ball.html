@@ -15,17 +15,17 @@
     </div>
     <script type="text/javascript">
         var get = document.getElementById("get_ball");
-        function refresh_dot() {
-            var dot = "";
-            if (dot == "...") {
-                dot = "";
-            }
-            dot = dot + ".";
-            get.innerHTML = "請放入球" + dot;
-        }
-        setInterval(function() {
-            refresh_dot();
-        }, 1000);
+			var dot = "";
+			function refresh_dot() {
+				if (dot == "...") {
+					dot = "";
+				}
+				dot = dot + "."
+				processing.innerHTML = "請放入球" + dot;
+			}
+			setInterval(function() {
+				refresh_dot();
+			}, 1000);
     </script>
 </body>
 </html>
