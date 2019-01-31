@@ -17,10 +17,10 @@
         var get = document.getElementById("get_ball");
 			var dot = "";
 			function refresh_dot() {
-				if (dot == "...") {
+			    dot = dot + "."
+				if (dot == "....") {
 					dot = "";
 				}
-				dot = dot + "."
 				get.innerHTML = "請放入球" + dot;
 			}
 		setInterval(function() {

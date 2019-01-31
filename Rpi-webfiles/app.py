@@ -13,11 +13,18 @@ _isError = False
 
 
 def frame(cap):
-	global _ischecked, face_cascade
+	global _ischecked, face_cascade, _isError
 	last_time = 0
 	while True:
 		_, frame = cap.read()
+		try:
+			frame.copy()
+		except AttributeError as e:
+			_isError = True
+			break
+
 		image = frame.copy()
+
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		rects = []
 		try:
@@ -25,6 +32,7 @@ def frame(cap):
 		except Exception as e:
 			cap.release()
 			_isError = True
+			break
 
 		for(x, y, w, h) in rects:
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -79,6 +87,7 @@ def get_weather():
 
 @app.route("/cv2_empty")
 def cv2_empty():
+	global _isError
 	if _isError:
 		return jsonify(True)
 	else:

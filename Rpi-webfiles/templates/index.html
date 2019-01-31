@@ -37,7 +37,7 @@
 					temp.innerHTML = response.temp;
 					type.innerHTML = response.type;
 					rain.innerHTML = response.rain;
-					rainning_count = rain.innerHTML;
+					raining_count = rain.innerHTML;
 					weather_type = type.innerHTML;
 					temperature = temp.innerHTML;
 			});
@@ -46,22 +46,19 @@
 		
 		
 		function get_ball(event) {
-			/**if (detect_rainning_count() == true || detect_temperature() == true) {
+			if (detect_raining_count() == true || detect_temperature() == true) {
 				warning_text.innerHTML = "天氣不好，所以借球服務巳停止"; 
-				console.log(rainning_count, weather_type, temperature);
+				console.log(raining_count, weather_type, temperature);
 			} else {
-			**/
-			get_ball_borrow();
-		/**
+				get_ball_borrow();
 			}
-		**/
 		}
 
 		function get_ball_borrow(event) {
 			window.open("/camera_recognition", "_self");
 		}
-		function detect_rainning_count() {
-			weather_type = weather_type.replace("mm", "");
+		function detect_raining_count() {
+			raining_count = raining_count.replace("mm", "");
 			weather_type = parseInt(weather_type);
 			if (weather_type >= 3) {
 				return true;

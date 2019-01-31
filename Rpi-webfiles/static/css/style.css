@@ -35,6 +35,7 @@ h1 {
     cursor:pointer;
     overflow: hidden;
     color: white;
+    border-radius: 15px;
 }
 
 #main button:hover {
@@ -58,6 +59,7 @@ h1 {
     padding: 5px 20px;
     float: right;
     margin-top 50px;
+    border-radius: 15px;
 }
 
 .cancel:hover {
@@ -84,7 +86,7 @@ p {
     color: white;
 }
 
-#problem_camera {
+.problem_camera {
     font-size: 24px;
     border: 1px solid white;
     padding: 5px 20px;
@@ -92,7 +94,7 @@ p {
     text-decoration: none;
     border-radius: 15px;
 }
-#problem_camera:hover {
+.problem_camera:hover {
     background-color: darkorange;
     transition: all 0.5s ease;
 }

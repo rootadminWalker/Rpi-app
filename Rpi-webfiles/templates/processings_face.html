@@ -18,10 +18,10 @@
 			var processing = document.getElementById("process");
 			var dot = "";
 			function refresh_dot() {
-				if (dot == "...") {
+				dot = dot + "."
+				if (dot == "....") {
 					dot = "";
 				}
-				dot = dot + "."
 				processing.innerHTML = "處理中" + dot;
 			}
 			setInterval(function() {
