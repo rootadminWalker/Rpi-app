@@ -10,6 +10,7 @@ _ischecked = False
 face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
 user = False
 
+
 def frame(cap):
 	global _ischecked, face_cascade
 	last_time = 0
@@ -106,6 +107,11 @@ def get_face_count():
 	global user
 	if user:
 		return render_template("Success.html")
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+	return render_template("404.html"), 404
 
 
 @app.context_processor

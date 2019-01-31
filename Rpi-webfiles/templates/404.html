@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>It seems like we didn't have that web page</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div id="container">
+        <a href="/" class="cancel">Cancel</a>
+        <div id="main">
+            <h1>Your Page wasn't found</h1>
+            <p>
+                Make sure you type the right url
+            </p>
+            <img src="{{url_for('static', filename='img/lost.jpg')}}">
+        </div>
+    </div>
+</body>
+</html>
