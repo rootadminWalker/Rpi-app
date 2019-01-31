@@ -51,12 +51,13 @@ h1 {
 	top: 214px;
 }
 
-#main .cancel {
+#container .cancel {
     position: absolute;
     text-decoration: none;
     border: 1px solid white;
     color: white;
     padding: 5px 20px;
+    float: right;
 }
 
 #warning {
