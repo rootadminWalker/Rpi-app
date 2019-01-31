@@ -9,6 +9,7 @@ app = Flask(__name__)
 _ischecked = False
 face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
 user = False
+_isError = False
 
 
 def frame(cap):
@@ -18,7 +19,13 @@ def frame(cap):
 		_, frame = cap.read()
 		image = frame.copy()
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
+		rects = []
+		try:
+			rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
+		except Exception as e:
+			cap.release()
+			_isError = True
+
 		for(x, y, w, h) in rects:
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 		
@@ -68,6 +75,19 @@ def get_weather():
 	data['type'] = Crawler.find(s, '<span class="location">', '</span>')
 	data['rain'] = Crawler.find(s, '<span class="rain">', '</span>')
 	return jsonify(data)
+
+
+@app.route("/cv2_empty")
+def cv2_empty():
+	if _isError:
+		return jsonify(True)
+	else:
+		return jsonify(False)
+
+
+@app.route("/camera_is_empty")
+def camera_is_empty():
+	return render_template("empty.html")
 
 
 @app.route("/camera_recognition")

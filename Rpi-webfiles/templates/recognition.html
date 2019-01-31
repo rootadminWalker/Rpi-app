@@ -31,9 +31,26 @@
 					}
 				});
 			}
+			function auto_check_camera() {
+				$.ajax({
+					url: "/cv2_empty",
+					type: "GET",
+					data: {}
+				}).done(function(response){
+					if (response == true) {
+						window.open("/camera_is_empty", "_self");
+						$.ajax({
+							url: "/cv2_empty",
+							type: "POST",
+							data: {false}
+						});
+					}
+				});
+			}
 			
 			setInterval(function() {
 				auto_checking();
+				auto_check_camera();
 			}, 1000);
 		</script>
 	</body>
