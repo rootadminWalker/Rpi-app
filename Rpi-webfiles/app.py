@@ -10,7 +10,6 @@ _ischecked = False
 face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
 user = False
 
-
 def frame(cap):
 	global _ischecked, face_cascade
 	last_time = 0
