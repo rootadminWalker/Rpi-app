@@ -4,7 +4,7 @@ body {
    	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/background.jpg")
 }
 
-html, body, h1, button {
+html, body, h1, button a{
 	font-family: Microsoft JhengHei;
 }
 
@@ -36,6 +36,7 @@ h1 {
     overflow: hidden;
     color: white;
 }
+
 #main button:hover {
     background-color: darkorange;
     transition: all 0.5s ease;
@@ -48,6 +49,15 @@ h1 {
 	position: absolute;
 	right: 25px;
 	top: 214px;
+}
+
+#main .cancel {
+    position; absolute;
+    text-decoration: none;
+    border: 1px solid white;
+    color: white;
+    float: right;
+    padding: 5px 20px;
 }
 
 #warning {
