@@ -90,6 +90,7 @@ p {
     padding: 5px 20px;
     color: white;
     text-decoration: none;
+    border-radius: 15px;
 }
 #problem_camera:hover {
     background-color: darkorange;
