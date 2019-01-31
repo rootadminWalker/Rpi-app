@@ -84,11 +84,11 @@ p {
     color: white;
 }
 
-.problem_camera {
+#problem_camera {
     border: 5px 20px;
     color: white;
     text-decoration: none;
 }
-.problem_camera:hover {
+#problem_camera:hover {
     background-color: darkorange;
 }
