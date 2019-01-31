@@ -83,3 +83,12 @@ h1 {
 p {
     color: white;
 }
+
+.problem_camera {
+    border: 5px 20px;
+    color: white;
+    text-decoration: none;
+}
+.problem_camera:hover {
+    background-color: darkorange;
+}
