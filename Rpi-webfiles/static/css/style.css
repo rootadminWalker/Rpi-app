@@ -52,7 +52,7 @@ h1 {
 }
 
 #main .cancel {
-    position; absolute;
+    position: absolute;
     text-decoration: none;
     border: 1px solid white;
     color: white;
@@ -71,4 +71,5 @@ h1 {
 	top: 64px;
 	font-size: 24px;
 	color: white;
+	margin-top: 30px;
 }
