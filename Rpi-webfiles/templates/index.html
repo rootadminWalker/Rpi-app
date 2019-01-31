@@ -11,7 +11,7 @@
 			<div id="main">
 				<h1>籃球管理系統</h1>
 				<button onclick="get_ball(event)">借</button>
-				<button>還</button>
+				<button onclick="return_ball_back(event)">還</button>
 				<button class="setting">設置</button>
 				<div id="weather">
 					<p id="temp">...</p>
@@ -76,6 +76,9 @@
 			} else {
 				return false;
 			}
+		}
+		function return_ball_back(event) {
+			window.open("/return_ball", "_self");
 		}
 
 	</script>
