@@ -82,6 +82,7 @@ def get_weather():
 	data['temp'] = Crawler.find(s, '<span class="temp">', '</span>')
 	data['type'] = Crawler.find(s, '<span class="location">', '</span>')
 	data['rain'] = Crawler.find(s, '<span class="rain">', '</span>')
+	data['last_update_time'] = Crawler.find(s, '<p id="reportUpdateTime">', '</p>')
 	return jsonify(data)
 
 
@@ -141,6 +142,11 @@ def get_face_count():
 	global user
 	if user:
 		return render_template("Success.html")
+
+
+@app.route("borrow_success")
+def borrow_success():
+	return render_template("Success.html")
 
 
 @app.errorhandler(404)

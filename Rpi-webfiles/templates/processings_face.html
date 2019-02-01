@@ -17,6 +17,7 @@
 		<script type="text/javascript">
 			var processing = document.getElementById("process");
 			var dot = "";
+			var times = 0
 			function refresh_dot() {
 				dot = dot + "."
 				if (dot == "....") {
@@ -24,9 +25,15 @@
 				}
 				processing.innerHTML = "處理中" + dot;
 			}
-			setInterval(function() {
+			process_doing = setInterval(function() {
 				refresh_dot();
+				times += 1;
 			}, 1000);
+			if times == 5 {
+				clearInterval(process_doing);
+				windows.open("/borrow_success", "_self")
+			}
+
 		</script>
 	</body>
 </html>
