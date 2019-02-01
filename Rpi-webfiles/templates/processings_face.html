@@ -25,14 +25,13 @@
 				}
 				processing.innerHTML = "處理中" + dot;
 			}
-			process_doing = setInterval(function() {
+			setInterval(function() {
 				refresh_dot();
 				times += 1;
 			}, 1000);
-			if (times == 5) {
-				clearInterval(process_doing);
-				windows.open("/borrow_success", "_self")
-			}
+			setTimeout(function() {
+				window.open("/borrow_success", "_self")
+			}, 5000);
 
 		</script>
 	</body>
