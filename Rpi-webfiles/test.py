@@ -5,7 +5,7 @@ led = 18
 GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(led, GPIO.OUT)
-p = GPIO.PWM(led, 50)
+p = GPIO.PWM(led, 100)
 p.start(7.5)
 
 try:
