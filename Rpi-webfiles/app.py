@@ -96,6 +96,8 @@ def cv2_empty():
 
 @app.route("/camera_is_empty")
 def camera_is_empty():
+	global _isError
+	_isError = False
 	return render_template("empty.html")
 
 
