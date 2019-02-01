@@ -39,7 +39,7 @@ h1 {
 }
 
 #main button:hover {
-    background-color: darkorange;
+    background-color: rgb(255, 140, 0, 0.8);
     transition: all 0.5s ease;
 }
 
@@ -95,6 +95,6 @@ p {
     border-radius: 15px;
 }
 .problem_camera:hover {
-    background-color: darkorange;
+    background-color: rgb(255, 140, 0, 0.8);
     transition: all 0.5s ease;
 }
