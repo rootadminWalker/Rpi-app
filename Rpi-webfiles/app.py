@@ -94,6 +94,11 @@ def cv2_empty():
 	return jsonify(data)
 
 
+@app.route("/return_success")
+def return_success():
+	return render_template("return_ball_success.html")
+
+
 @app.route("/camera_is_empty")
 def camera_is_empty():
 	return render_template("empty.html")

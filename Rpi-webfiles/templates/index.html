@@ -18,7 +18,7 @@
 					<p id="type">...</p>
 					<p id="rain">...</p>
 				</div>
-				<p id="warning">天氣資訊來自<a href="#">http://home.puiching.edu.mo/~pcama/</a>天氣資訊最後更新: ...</p>
+				<p id="warning">天氣資訊來自<a id="from_place" href="#">http://home.puiching.edu.mo/~pcama/</a>天氣資訊最後更新: ...</p>
 			</div>
 		</div>
 	<script type="text/javascript">
@@ -37,7 +37,7 @@
 					temp.innerHTML = response.temp;
 					type.innerHTML = response.type;
 					rain.innerHTML = response.rain;
-					warning_text.innerHTML = "天氣資訊來自<a href='#'>http://home.puiching.edu.mo/~pcama/</a>，天氣資訊最後" + response.last_update_time;
+					warning_text.innerHTML = "天氣資訊來自<a id='from_place' href='#'>http://home.puiching.edu.mo/~pcama/</a>，天氣資訊最後" + response.last_update_time;
 					raining_count = rain.innerHTML;
 					weather_type = type.innerHTML;
 					temperature = temp.innerHTML;
