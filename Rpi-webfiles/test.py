@@ -1,16 +1,16 @@
 import RPi.GPIO as GPIO
 import time
 
-led = 4
+led = 18
 GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(led, GPIO.OUT)
 
-i = 0
-while i <= 5:
-    GPIO.output(led, GPIO.HIGH)
-    time.sleep(2)
-    GPIO.output(led, GPIO.LOW)
-    i += 1
-GPIO.cleanup()
+try:
+    while True:
+        GPIO.output(led, 1)
+        time.sleep(0.0015)
+        GPIO.output(led, 0)
+except KeyboardInterrupt:
+    GPIO.cleanup()
 
