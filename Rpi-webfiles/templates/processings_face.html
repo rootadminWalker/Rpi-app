@@ -29,7 +29,7 @@
 				refresh_dot();
 				times += 1;
 			}, 1000);
-			if times == 5 {
+			if (times == 5) {
 				clearInterval(process_doing);
 				windows.open("/borrow_success", "_self")
 			}
