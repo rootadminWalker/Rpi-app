@@ -37,12 +37,12 @@
 					type: "GET",
 					data: {}
 				}).done(function(response){
-					if (response == true) {
+					if (response.empty == true) {
 						window.open("/camera_is_empty", "_self");
 						$.ajax({
 							url: "/cv2_empty",
 							type: "POST",
-							data: "false"
+							data: {empty: "false"}
 						});
 					}
 				});

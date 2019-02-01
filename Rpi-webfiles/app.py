@@ -87,11 +87,10 @@ def get_weather():
 
 @app.route("/cv2_empty")
 def cv2_empty():
+	data = {}
 	global _isError
-	if _isError:
-		return jsonify(True)
-	else:
-		return jsonify(False)
+	data["empty"] = _isError
+	return jsonify(data)
 
 
 @app.route("/camera_is_empty")
