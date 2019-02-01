@@ -144,7 +144,7 @@ def get_face_count():
 		return render_template("Success.html")
 
 
-@app.route("borrow_success")
+@app.route("/borrow_success")
 def borrow_success():
 	return render_template("Success.html")
 
