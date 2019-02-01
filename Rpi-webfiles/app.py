@@ -100,8 +100,9 @@ def camera_is_empty():
 
 @app.route("/camera_recognition")
 def camera_recognition():
-	global _ischecked
+	global _ischecked, _isError
 	_ischecked = False
+	_isError = False
 	return render_template("recognition.html")
 
 
