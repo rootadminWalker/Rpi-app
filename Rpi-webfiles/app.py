@@ -33,6 +33,7 @@ def frame(cap):
 			cap.release()
 			_isError = True
 			break
+		_isError = False
 
 		for(x, y, w, h) in rects:
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -96,8 +97,6 @@ def cv2_empty():
 
 @app.route("/camera_is_empty")
 def camera_is_empty():
-	global _isError
-	_isError = False
 	return render_template("empty.html")
 
 
