@@ -10,9 +10,16 @@
 <body>
     <div id="container">
         <div id="main">
-            <h1>鏡頭出現了問題，請按故障按鈕或回主頁</h1>
-            <a class="problem_camera" href="/send_error">故障</a><a class="problem_camera" href="/">主頁</a>
+            <h1 id="error_message">鏡頭出現了問題，請按故障按鈕或回主頁</h1>
+            <a class="problem_camera" href="javascript:send_fix_message()">故障</a><a class="problem_camera" href="/">主頁</a>
         </div>
     </div>
+    <script type="text/javascript">
+        function send_fix_message() {
+            error = document.getElementById("error_message");
+            error.innerHTML = "請稍等...";
+            window.open("/send_error", "_self")
+        }
+    </script>
 </body>
 </html>

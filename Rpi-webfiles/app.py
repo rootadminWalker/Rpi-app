@@ -100,7 +100,7 @@ def cv2_empty():
 
 @app.route("/send_error")
 def send_error():
-	message = "The camera of the basketball machine failed, come and fix it"
+	message = "The camera of the basketball machine has failed, please come and fix it"
 	msg = Message(message, sender="chiioleong519@gmail.com", recipients=["chiioleong519@gmail.com"])
 	mail.send(msg)
 	return render_template("error_send.html"), "message sent"

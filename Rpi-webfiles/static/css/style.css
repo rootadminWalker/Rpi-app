@@ -36,6 +36,7 @@ h1 {
     overflow: hidden;
     color: white;
     border-radius: 15px;
+    transition: all 0.5s ease-in-out;
 }
 
 #main button:hover {
@@ -60,6 +61,8 @@ h1 {
     float: right;
     margin-top 10px;
     border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+
 }
 
 .cancel:hover {
@@ -90,6 +93,7 @@ h1 {
     color: white;
     text-decoration: none;
     border-radius: 15px;
+    transition: all 0.5s ease-in-out;
 }
 .problem_camera:hover {
     background-color: rgb(255, 140, 0, 0.8);
@@ -103,6 +107,7 @@ h1 {
     border: 1px solid white;
     border-radius: 15px;
     color: white;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -123,6 +128,7 @@ h1 {
     padding: 5px 20px;
     border: 1px solid white;
     border-radius: 15px;
+    transition: all 0.5s ease-in-out;
 }
 
 #ball_success:hover {
