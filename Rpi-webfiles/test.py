@@ -1,21 +1,17 @@
-import RPi.GPIO as GPIO
-import time
+from flask import *
+from flask_mail import *
 
-led = 18
-GPIO.setmode(GPIO.BCM)
+mail = Mail()
 
-GPIO.setup(led, GPIO.OUT)
-p = GPIO.PWM(led, 100)
-p.start(7.5)
+app = Flask(__name__)
+app.config.from_pyfile('config.cfg')
+mail.init_app(app)
 
-try:
-    while True:
-        p.ChangeDutyCycle(7.5)
-        time.sleep(1)
-        p.ChangeDutyCycle(12.5)
-        time.sleep(1)
-        p.ChangeDutyCycle(2.5)
-        time.sleep(1)
-except KeyboardInterrupt:
-    GPIO.cleanup()
+@app.route("/")
+def index():
+    msg = Message("hello", sender="chiioleong519@gmail.com", recipients=["chiioleong519@gmail.com"])
+    mail.send(msg)
+    return "message sent"
 
+
+app.run(port=8080, debug=True)

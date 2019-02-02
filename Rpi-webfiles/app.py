@@ -1,11 +1,15 @@
 from flask import *
+from flask_mail import *
 import os
 import Crawler
 import cv2
 import time
 import requests
 
+mail = Mail()
 app = Flask(__name__)
+app.config.from_pyfile('config.cfg')
+mail.init_app(app)
 _ischecked = False
 face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
 user = False
@@ -92,6 +96,14 @@ def cv2_empty():
 	global _isError
 	data["empty"] = _isError
 	return jsonify(data)
+
+
+@app.route("/send_error")
+def send_error():
+	message = "The camera of the basketball machine failed, come and fix it"
+	msg = Message(message, sender="chiioleong519@gmail.com", recipients=["chiioleong519@gmail.com"])
+	mail.send(msg)
+	return render_template("error_send.html"), "message sent"
 
 
 @app.route("/return_success")
