@@ -166,6 +166,11 @@ def borrow_success():
 	return render_template("Success.html")
 
 
+@app.route("/enter_admin_password")
+def enter_admin_password():
+	return render_template("enter_password.html")
+
+
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template("404.html"), 404
