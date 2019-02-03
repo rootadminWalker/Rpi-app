@@ -3,8 +3,9 @@ body {
 	background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url("/static/img/background.jpg");
 }
 
-html, body, h1, button, p{
+html, body, button{
 	font-family: Microsoft JhengHei;
+	color: white;
 }
 
 #main {
@@ -136,32 +137,13 @@ h1 {
     transition: all 0.5s ease-in-out;
 }
 
-#password_box {
-    width: 320px;
+.password-box {
+    width: 320;
     height: 420px;
-    background-color: rgb(0, 0, 0, 0.5);
-    margin-left: 50%;
-    margin-top: 20%;
+    background: rgb(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
     box-sizing: border-box;
-}
-
-.login_text {
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-}
-
-.password-box p {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
-
-.password-box input {
-    width: 100%;
-    margin-bottom: 20px;
-    width: 50px;
 }
