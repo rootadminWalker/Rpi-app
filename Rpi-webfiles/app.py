@@ -161,6 +161,11 @@ def get_face_count():
 		return render_template("Success.html")
 
 
+@app.route("/no_forgot_password")
+def no_forgot_password():
+	return render_template("forgot_password.html")
+
+
 @app.route("/borrow_success")
 def borrow_success():
 	return render_template("Success.html")
