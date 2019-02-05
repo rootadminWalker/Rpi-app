@@ -161,6 +161,21 @@ def get_face_count():
 		return render_template("Success.html")
 
 
+@app.route("/get_password", methods=["GET", "POST"])
+def get_password():
+	return render_template("recognize_password.html")
+
+
+@app.route("/access")
+def access():
+	return render_template("access.html")
+
+
+@app.route("/denied")
+def denied():
+	return render_template("denied.html")
+
+
 @app.route("/no_forgot_password")
 def no_forgot_password():
 	return render_template("forgot_password.html")
