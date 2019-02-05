@@ -154,16 +154,16 @@ def check_user():
 	return jsonify(data)
 
 
+@app.route("/password_get", methods=["POST", "GET"])
+def password_get():
+	return render_template("recognize_password.php")
+
+
 @app.route('/get_face_count')
 def get_face_count():
 	global user
 	if user:
 		return render_template("Success.html")
-
-
-@app.route("/get_password", methods=["GET", "POST"])
-def get_password():
-	return render_template("recognize_password.html")
 
 
 @app.route("/access")
