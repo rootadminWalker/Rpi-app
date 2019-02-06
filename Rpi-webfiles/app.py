@@ -196,6 +196,11 @@ def page_not_found(e):
 	return render_template("404.html"), 404
 
 
+@app.errorhandler(500)
+def internal_server_error(e):
+	return render_template("500.html"), 500
+
+
 @app.context_processor
 def override_url_for():
 	return dict(url_for=dated_url_for)
