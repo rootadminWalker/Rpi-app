@@ -159,7 +159,7 @@ def check_user():
 @app.route("/password_get", methods=["POST", "GET"])
 def password_get():
 	data = {}
-	user_password = request.args.get("user_password")
+	user_password = request.get("user_password")
 	if user_password == password:
 		data["situation"] = True
 	else:
