@@ -164,6 +164,7 @@ def password_get():
 		data["situation"] = True
 	else:
 		data["situation"] = False
+	print(data["situation"])
 	return jsonify(data)
 
 
