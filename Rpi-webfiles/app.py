@@ -14,6 +14,7 @@ _ischecked = False
 face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default.xml')
 user = False
 _isError = False
+password = "root_administrator"
 
 
 def frame(cap):
@@ -156,7 +157,14 @@ def check_user():
 
 @app.route("/password_get", methods=["POST", "GET"])
 def password_get():
-	return render_template("recognize_password.php")
+	data = {}
+	user_password = request.args.get("user_password")
+	if user_password == password:
+		data["situation"] = True
+	else:
+		data["situation"] = False
+	return jsonify(data)
+
 
 
 @app.route('/get_face_count')
