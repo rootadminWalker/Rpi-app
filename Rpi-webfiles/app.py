@@ -159,14 +159,13 @@ def check_user():
 @app.route("/password_get", methods=["POST", "GET"])
 def password_get():
 	data = {}
-	user_password = request.args.post("user_password")
+	user_password = request.form["user_password"]
 	if user_password == password:
 		data["situation"] = True
 	else:
 		data["situation"] = False
 	print(user_password)
 	return jsonify(data)
-
 
 
 @app.route('/get_face_count')
