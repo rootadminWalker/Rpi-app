@@ -146,6 +146,7 @@ def success():
 
 @app.route("/recognize_image")
 def recognize_image():
+	send_image()
 	return render_template("processings_face.html")
 
 
