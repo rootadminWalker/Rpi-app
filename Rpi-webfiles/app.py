@@ -68,7 +68,7 @@ def send_image():
 	URL = "http://192.168.170.23:4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
-	user = req.json()
+	user = req.text
 
 
 @app.route("/")
