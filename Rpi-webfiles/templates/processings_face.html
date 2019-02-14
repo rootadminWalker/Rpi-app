@@ -15,7 +15,6 @@
 		<script type="text/javascript">
 			var processing = document.getElementById("process");
 			var dot = "";
-			var times = 0
 			function refresh_dot() {
 				dot = dot + "."
 				if (dot == "....") {
@@ -25,11 +24,8 @@
 			}
 			setInterval(function() {
 				refresh_dot();
-				times += 1;
+				$.ajax({});
 			}, 1000);
-			setTimeout(function() {
-				window.open("/borrow_success", "_self")
-			}, 5000);
 
 		</script>
 	</body>
