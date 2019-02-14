@@ -14,15 +14,14 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+			var check, empty;
 			function auto_checking() {
 				$.ajax({
 					url: "/success",
 					type: "GET",
 					data: {},
 				}).done(function(response){
-					if (response.check == true){
-						window.open("/recognize_image", "_self");
-					}
+					check = response.check;
 				});
 			}
 			function auto_check_camera() {
@@ -31,15 +30,19 @@
 					type: "GET",
 					data: {}
 				}).done(function(response){
-					if (response.empty == true) {
-						window.open("/camera_is_empty", "_self");
-					}
+					empty = response.empty;
 				});
 			}
 			
 			setInterval(function() {
 				auto_checking();
 				auto_check_camera();
+				if (check == true){
+					window.open("/recognize_image", "_self");
+				}
+				if (empty == true){
+					window.open("/camera_is_empty", "_self");
+				}
 			}, 1000);
 		</script>
 	</body>
