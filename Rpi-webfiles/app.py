@@ -8,8 +8,28 @@ import time
 import requests
 
 '''
-	camera_recognition: 126
-	get_face_count: 176
+Because This server has many web pages, so the rows of these web pages are below:.. 
+	return_ball: 88
+	get_weather: 94
+	cv2_empty: 103
+	send_error: 114
+	return_success: 123
+	camera_is_empty: 130
+	camera_recognition: 135
+	welcome: 143
+	video_feed: 149
+	success: 156
+	recognize_image: 164
+	check_user: 171
+	password_get: 180
+	get_face_count: 193
+	access: 200
+	denied: 207
+	no_forgot_password: 213
+	borrow_success: 218
+	enter_admin_password: 224
+	error handlers: 230 ~ 237
+	context_processor: 242 ~ 253
 '''
 
 mail = Mail()
