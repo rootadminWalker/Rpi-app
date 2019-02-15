@@ -65,7 +65,7 @@ def frame(cap):
 
 def send_image():
 	global user
-	URL = "http://localhost:4000"
+	URL = "localhost:4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
 	user = req.text
