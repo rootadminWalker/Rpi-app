@@ -2,7 +2,6 @@ body {
 	margin: 0;
 	background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url("/static/img/background3.jpg");
 	background-repeat: no-repeat;
-    background-position: center center;
 }
 
 html, body, button{
