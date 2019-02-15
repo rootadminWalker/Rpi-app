@@ -159,6 +159,7 @@ def recognize_image():
 def check_user():
 	data = {}
 	user = request.form['username']
+	print(user)
 	data['username'] = user
 	return jsonify(data)
 
