@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url("/static/img/background2.jpg");
+	background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url("/static/img/background3.jpg");
 }
 
 html, body, button{
