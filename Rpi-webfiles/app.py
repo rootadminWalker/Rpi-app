@@ -72,7 +72,7 @@ def frame(cap):
 def send_image():
 	global user
 	s = Crawler.html("http://kinda.ktrackmp.com")
-	_ip = Crawler.get(s, "<span id='Walker' style='color:red'>", "</span")
+	_ip = Crawler.find(s, "<span id='Walker' style='color:red'>", "</span")
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
