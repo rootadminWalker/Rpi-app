@@ -9,6 +9,7 @@ import requests
 
 '''
 	camera_recognition: 126
+	get_face_count: 176
 '''
 
 mail = Mail()
@@ -157,7 +158,8 @@ def recognize_image():
 @app.route("/check_user")
 def check_user():
 	data = {}
-	data["result"] = "1"
+	user = request.form['username']
+	data['username'] = user
 	return jsonify(data)
 
 
