@@ -161,7 +161,7 @@ def check_user():
 	return jsonify(data)
 
 
-@app.route("Rpi_ip")
+@app.route("/Rpi_ip")
 def Rpi_ip():
 	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
 	ip = Crawler.find(s, "<span id='RPi_Kinda'>", "</span>")
