@@ -15,7 +15,6 @@
 		<script type="text/javascript">
 			var processing = document.getElementById("process");
 			var dot = "";
-			var ip;
 			function refresh_dot() {
 				dot = dot + "."
 				if (dot == "....") {
@@ -23,35 +22,8 @@
 				}
 				processing.innerHTML = "處理中" + dot;
 			}
-			function refresh_server_IP() {
-				$.ajax({
-					type: "GET",
-					url: "http://localhost:8540/Server_ip",
-					data: {}
-				}).done(function(response){
-					ip = response.ip;
-					console.log(ip);
-				});
-			}
-
-			function check_face() {
-				$.ajax({
-					type: "GET",
-					url: "http://" + ip + ":4000",
-					data: {}
-				}).done(function(response) {
-					if (username != '') {
-						window.open("/welcome", "_self");
-					} else {
-						window.open("/denied", "_self");
-					}
-				});
-			}
-
 			setInterval(function() {
-				check_face();
 				refresh_dot();
-				refresh_server_IP();
 			}, 1000);
 
 		</script>
