@@ -66,13 +66,13 @@ def frame(cap):
 
 
 def send_image():
-	global user
+	global users
 	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
 	_ip = Crawler.find(s, "<span id='Walker'>", "</span>")
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
-	user = req.text
+	users = req.text
 
 
 @app.route("/")
@@ -158,8 +158,6 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
-	global users
-	users = request.args.get('username')
 	return render_template("processings_face.html")
 
 
