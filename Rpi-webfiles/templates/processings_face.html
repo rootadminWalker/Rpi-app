@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		{% include 'ico.html' %}
-		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -15,6 +15,7 @@
 		<script type="text/javascript">
 			var processing = document.getElementById("process");
 			var dot = "";
+			var ip;
 			function refresh_dot() {
 				dot = dot + "."
 				if (dot == "....") {
@@ -22,6 +23,18 @@
 				}
 				processing.innerHTML = "處理中" + dot;
 			}
+			function check_user() {
+				$.ajax({
+					type: "GET",
+					url: "http://localhost:8540/check_user",
+					data: {}
+				}).done(function(response){
+					if (response.username != "") {
+						window.open("/welcome", "_self")
+					}
+				});
+			}
+
 			setInterval(function() {
 				refresh_dot();
 			}, 1000);
