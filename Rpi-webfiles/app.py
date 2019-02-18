@@ -153,7 +153,7 @@ def recognize_image():
 
 
 @app.route("/Server_ip", methods=["POST", "GET"])
-def Rpi_ip():
+def Server_ip():
 	data = {}
 	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
 	data['ip'] = Crawler.find(s, "<span id='Walker'>", "</span>")
