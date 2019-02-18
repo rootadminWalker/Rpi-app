@@ -7,11 +7,6 @@ import cv2
 import time
 import requests
 
-'''
-	camera_recognition: 126
-	get_face_count: 176
-'''
-
 mail = Mail()
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
