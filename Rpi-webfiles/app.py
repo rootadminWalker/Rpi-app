@@ -152,13 +152,14 @@ def success():
 def username():
 	global users
 	data = {}
-	users = request.form['username']
 	data['user'] = users
 	return jsonify(data)
 
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
+	global users
+	users = request.form['username']
 	return render_template("processings_face.html")
 
 
