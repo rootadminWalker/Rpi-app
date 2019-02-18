@@ -16,6 +16,7 @@ face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default
 user = False
 _isError = False
 password = "root_administrator"
+users = ''
 
 
 def frame(cap):
@@ -147,10 +148,18 @@ def success():
 	return jsonify(data)
 
 
+@app.route('/username', methods=['POST', 'GET'])
+def username():
+	global users
+	data = {}
+	data['user'] = users
+	return jsonify(data)
+
+
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
+	global users
 	users = request.form['username']
-	print(users)
 	return render_template("processings_face.html", user=users)
 
 
