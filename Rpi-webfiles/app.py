@@ -149,7 +149,9 @@ def success():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
-	return render_template("processings_face.html")
+	users = request.form['username']
+	print(users)
+	return render_template("processings_face.html", user=users)
 
 
 @app.route("/Server_ip", methods=["POST", "GET"])
