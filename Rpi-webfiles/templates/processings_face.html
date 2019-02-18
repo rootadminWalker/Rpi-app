@@ -22,6 +22,21 @@
 				}
 				processing.innerHTML = "處理中" + dot;
 			}
+
+			function get_username() {
+				$.ajax({
+					type: "GET",
+					url: "/username",
+					data: {}
+				}).done(function(response) {
+					if (response.user != "") {
+						window.open("/welcome", "_self");
+					} else {
+						window.open("/denied", "_self");
+					}
+				});
+			}
+
 			setInterval(function() {
 				refresh_dot();
 			}, 1000);
