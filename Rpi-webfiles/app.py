@@ -159,7 +159,7 @@ def username():
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
 	global users
-	users = request.form.get('username')
+	users = request.args.get('username')
 	return render_template("processings_face.html")
 
 
