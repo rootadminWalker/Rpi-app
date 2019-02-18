@@ -23,14 +23,26 @@
 				}
 				processing.innerHTML = "處理中" + dot;
 			}
-			function check_user() {
+			function refresh_server_IP() {
 				$.ajax({
 					type: "GET",
-					url: "http://localhost:8540/check_user",
+					url: "http://localhost:8540/Server_ip",
 					data: {}
 				}).done(function(response){
-					if (response.username != "") {
-						window.open("/welcome", "_self")
+					ip = response.ip;
+				});
+			}
+
+			function check_face() {
+				$.ajax({
+					type: "GET",
+					url: "http://" + ip + ":4000",
+					data: {}
+				}).done(function(response) {
+					if (username != '') {
+						window.open("/welcome", "_self");
+					} else {
+						window.open("/denied", "_self");
 					}
 				});
 			}

@@ -152,20 +152,12 @@ def recognize_image():
 	return render_template("processings_face.html")
 
 
-@app.route("/check_user")
-def check_user():
-	data = {}
-	user = request.form['username']
-	print(user)
-	data['username'] = user
-	return jsonify(data)
-
-
-@app.route("/Rpi_ip")
+@app.route("/Server_ip")
 def Rpi_ip():
+	data = {}
 	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
-	ip = Crawler.find(s, "<span id='RPi_Kinda'>", "</span>")
-	return ip
+	data['ip'] = Crawler.find(s, "<span id='Walker'>", "</span>")
+	return jsonify(data)
 
 
 @app.route("/password_get", methods=["POST", "GET"])
