@@ -152,7 +152,7 @@ def recognize_image():
 	return render_template("processings_face.html")
 
 
-@app.route("/Server_ip")
+@app.route("/Server_ip", methods=["POST", "GET"])
 def Rpi_ip():
 	data = {}
 	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
