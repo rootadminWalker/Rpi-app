@@ -132,7 +132,8 @@ def camera_recognition():
 
 @app.route("/welcome")
 def welcome():
-	return "welcome Thomas"
+	global users
+	return "<h1>Hello <span style='color: red'>" + users + "</span></h1>"
 
 
 @app.route("/video_feed")
