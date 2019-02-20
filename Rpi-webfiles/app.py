@@ -28,6 +28,7 @@ def frame(cap):
 			frame.copy()
 		except AttributeError as e:
 			_isError = True
+			cap.release()
 			break
 
 		image = frame.copy()
@@ -73,6 +74,7 @@ def send_image():
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
 	users = req.text
+	print(users)
 
 
 @app.route("/")
