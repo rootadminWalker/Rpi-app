@@ -73,7 +73,10 @@ def send_image():
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	req = requests.post(URL, files=files)
-	users = req.text
+	try:
+		users = req.text
+	except Exception as e:
+		print(e)
 	print(users)
 
 
