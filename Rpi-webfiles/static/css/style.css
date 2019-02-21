@@ -141,7 +141,7 @@ h1 {
     position: relative;
     width: 360px;
     height: 420px;
-    background-color: rgb(0, 0, 0, 0.45);
+    background-color: rgb(0, 0, 0, 0.5);
     margin-top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);
