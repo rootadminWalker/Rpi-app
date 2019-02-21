@@ -16,7 +16,7 @@ face_cascade = cv2.CascadeClassifier('../../libs/haarcascade_frontalface_default
 user = False
 _isError = False
 password = "root_administrator"
-users = ''
+users = 'unknown'
 
 
 def frame(cap):

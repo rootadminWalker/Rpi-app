@@ -31,6 +31,8 @@
 				}).done(function(response) {
 					if (response.user != "") {
 						window.open("/welcome", "_self");
+					} else if (response.user == "unknown") {
+						window.open("/camera_is_empty", "_self");
 					} else {
 						window.open("/denied", "_self");
 					}
