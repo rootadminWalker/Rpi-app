@@ -166,8 +166,7 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
-	send_image()
-	return render_template("processings_face.html")
+	return render_template("processings_face.html"), send_image()
 
 
 @app.route("/Server_ip", methods=["POST", "GET"])
