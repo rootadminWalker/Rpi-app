@@ -59,7 +59,6 @@ def frame(cap):
 		elif time.time() - last_time > 3:
 			cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
 			_ischecked = True
-			send_image()
 			break
 
 		_, jpg = cv2.imencode('.jpg', image)
@@ -141,7 +140,6 @@ def welcome():
 	arduino.flush()
 	arduino.write(b"1")
 	arduino.write(b"2")
-	arduino.write(b"0")
 	return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
 
 
@@ -168,6 +166,7 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
+	send_image()
 	return render_template("processings_face.html")
 
 
