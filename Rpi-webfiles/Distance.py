@@ -11,7 +11,7 @@ gpio.setup(trig, gpio.OUT)
 gpio.setup(echo, gpio.IN)
 
 gpio.output(trig, True)
-time.sleep(1)
+time.sleep(0.0001)
 gpio.output(trig, False)
 end, start = None, None
 
