@@ -59,6 +59,7 @@ def frame(cap):
 		elif time.time() - last_time > 3:
 			cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
 			_ischecked = True
+			send_image()
 			break
 
 		_, jpg = cv2.imencode('.jpg', image)
@@ -166,7 +167,7 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
-	return render_template("processings_face.html"), send_image()
+	return render_template("processings_face.html")
 
 
 @app.route("/Server_ip", methods=["POST", "GET"])
