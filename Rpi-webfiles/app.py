@@ -6,7 +6,9 @@ import Crawler
 import cv2
 import time
 import requests
+from serial import Serial
 
+port = "/dev/ttyACM0"
 mail = Mail()
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
@@ -17,6 +19,7 @@ user = False
 _isError = False
 password = "root_administrator"
 users = ''
+arduino = Serial(port, 9600)
 
 
 def frame(cap):
@@ -134,7 +137,11 @@ def camera_recognition():
 
 @app.route("/welcome")
 def welcome():
-	global users
+	global users, arduino
+	arduino.flush()
+	arduino.write(b"1")
+	time.sleep(1)
+	arduino.write(b"2")
 	return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
 
 
