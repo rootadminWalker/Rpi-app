@@ -140,6 +140,7 @@ def welcome():
 	global users, arduino
 	arduino.flush()
 	arduino.write(b"1")
+	time.sleep(1)
 	arduino.write(b"2")
 	arduino.write(b"0")
 	return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
