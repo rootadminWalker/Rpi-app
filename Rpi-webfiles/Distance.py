@@ -10,20 +10,20 @@ echo = 18
 gpio.setup(trig, gpio.OUT)
 gpio.setup(echo, gpio.IN)
 
-while True:
-	gpio.output(trig, True)
-	time.sleep(1)
-	gpio.output(trig, False)
-	end, start = None, None
-	while not gpio.input(echo):
-		start = time.time()
+gpio.output(trig, True)
+time.sleep(1)
+gpio.output(trig, False)
+end, start = None, None
 
-	while gpio.input(echo):
-	    end = time.time()
+while not gpio.input(echo):
+    start = time.time()
 
-	sig_time = end - start
-	distance = sig_time / 0.000058
-	print('Detected distance: {}cm'.format(round(distance, 2)))
+while gpio.input(echo):
+    end = time.time()
+
+sig_time = end - start
+distance = sig_time / 0.000058
+print('Detected distance: {}cm'.format(round(distance, 2)))
 
 gpio.cleanup()
 
