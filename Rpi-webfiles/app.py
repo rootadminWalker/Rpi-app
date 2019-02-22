@@ -141,7 +141,7 @@ def welcome():
 	arduino.flush()
 	arduino.write(b"1")
 	arduino.write(b"2")
-	return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
+	return "<body><center><h1>Hello <span style='color: red'>" + users + "</span></h1></center></body>"
 
 
 @app.route("/video_feed")
