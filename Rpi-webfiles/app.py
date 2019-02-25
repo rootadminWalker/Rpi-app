@@ -6,10 +6,10 @@ import Crawler
 import cv2
 import time
 import requests
-from serial import Serial
+from serial import Serial, SerialException
 
 port = "/dev/ttyACM0"
-arduino = Serial(port, 9600)
+arduino = None
 _NoArduino = False
 mail = Mail()
 app = Flask(__name__)
@@ -21,6 +21,15 @@ user = False
 _isError = False
 password = "root_administrator"
 users = ''
+
+
+def connect_arduino():
+	global arduino, _NoArduino
+	try:
+		arduino = Serial(port, 9600)
+	except (OSError, SerialException):
+		_NoArduino = True
+		print("The arduino port is invalid. Try another port")
 
 
 def frame(cap):
@@ -143,9 +152,10 @@ def welcome():
 		arduino.flush()
 		arduino.write(b"1")
 		arduino.write(b"2")
+		_NoArduino = False
 		return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
-	_NoArduino = False
-	return '<h1>A little bit of problem, we will fix it</h1>'
+	else:
+		return '<h1>A little bit of problem, we will fix it</h1>'
 
 
 @app.route("/video_feed")
