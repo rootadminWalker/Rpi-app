@@ -27,5 +27,4 @@ while True:
     distance = sig_time / 0.000058
     print('Detected distance: {}cm'.format(round(distance, 2)))
 
-    gpio.cleanup()
-
+gpio.cleanup()
