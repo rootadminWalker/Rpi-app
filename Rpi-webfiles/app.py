@@ -11,6 +11,7 @@ import sys
 
 port = "/dev/ttyACM0"
 arduino = None
+_NoArduino = False
 mail = Mail()
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
@@ -29,6 +30,7 @@ def connet_arduino():
 		arduino = Serial(port, 9600)
 	except Exception as e:
 		print("Cannot connect arduino due to: {}, skipping".format(e))
+		_NoArduino = True
 		if sys.platform.startswith("win"):
 			print("This is a windows platform, You can't run it on windows")
 
@@ -149,11 +151,14 @@ def camera_recognition():
 
 @app.route("/welcome")
 def welcome():
-	global users, arduino
-	arduino.flush()
-	arduino.write(b"1")
-	arduino.write(b"2")
-	return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
+	global users, arduino, _NoArduino
+	if not _NoArduino:
+		arduino.flush()
+		arduino.write(b"1")
+		arduino.write(b"2")
+		return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
+	_NoArduino = False
+	return '<h1>A little bit of problem, we will fix it</h1>'
 
 
 @app.route("/video_feed")
