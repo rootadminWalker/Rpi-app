@@ -7,10 +7,9 @@ import cv2
 import time
 import requests
 from serial import Serial
-import sys
 
 port = "/dev/ttyACM0"
-arduino = None
+arduino = Serial(port, 9600)
 _NoArduino = False
 mail = Mail()
 app = Flask(__name__)
@@ -22,17 +21,6 @@ user = False
 _isError = False
 password = "root_administrator"
 users = ''
-
-
-def connet_arduino():
-	global arduino, _NoArduino
-	try:
-		arduino = Serial(port, 9600)
-	except Exception as e:
-		print("Cannot connect arduino due to: {}, skipping".format(e))
-		_NoArduino = True
-		if sys.platform.startswith("win"):
-			print("This is a windows platform, You can't run it on windows")
 
 
 def frame(cap):
@@ -95,7 +83,6 @@ def send_image():
 
 @app.route("/")
 def index():
-	connet_arduino()
 	return render_template("index.html")
 
 
