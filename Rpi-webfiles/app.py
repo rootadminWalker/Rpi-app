@@ -25,7 +25,7 @@ users = ''
 
 
 def connet_arduino():
-	global arduino
+	global arduino, _NoArduino
 	try:
 		arduino = Serial(port, 9600)
 	except Exception as e:
