@@ -27,6 +27,6 @@ try:
         sig_time = end - start
         distance = sig_time / 0.000058
         print('Detected distance: {}cm'.format(round(distance, 2)))
-        time.sleep(0.5)
+        time.sleep(1)
 except KeyboardInterrupt:
     gpio.cleanup()
