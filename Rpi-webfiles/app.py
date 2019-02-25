@@ -92,6 +92,7 @@ def send_image():
 
 @app.route("/")
 def index():
+	connect_arduino()
 	return render_template("index.html")
 
 
