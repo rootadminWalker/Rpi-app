@@ -27,10 +27,10 @@ try:
 
         while gpio.input(echo):
             end = time.time()
-
-        sig_time = end - start
-        distance = sig_time / 0.000058
-        print('Detected distance: {}cm'.format(round(distance, 2)))
-        time.sleep(1)
+        if end is not None:
+            sig_time = end - start
+            distance = sig_time / 0.000058
+            print('Detected distance: {}cm'.format(round(distance, 2)))
+            time.sleep(1)
 except KeyboardInterrupt:
     gpio.cleanup()
