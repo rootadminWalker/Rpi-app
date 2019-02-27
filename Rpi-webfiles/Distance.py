@@ -18,11 +18,9 @@ try:
         time.sleep(0.0001)
         gpio.output(trig, False)
 
-        start_while = time.time()
         while not gpio.input(echo):
             start = time.time()
-            print(time.time() - start_while)
-            if time.time() - start_while > 3:
+            if time.time() - start > 3:
                 break
 
         while gpio.input(echo):
