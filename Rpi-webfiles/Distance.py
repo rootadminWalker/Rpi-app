@@ -20,7 +20,7 @@ try:
 
         while not gpio.input(echo):
             start = time.time()
-            print(round(time.time() - start, 0))
+            print(round(time.time() - start, 1))
             if time.time() - start > 3:
                 break
 
