@@ -4,7 +4,7 @@ import time
 
 gpio.setmode(gpio.BCM)
 
-trig = 4
+trig = 27
 echo = 17
 
 gpio.setwarnings(False)
