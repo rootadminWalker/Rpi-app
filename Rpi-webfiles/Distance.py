@@ -10,13 +10,13 @@ echo = 17
 gpio.setwarnings(False)
 gpio.setup(trig, gpio.OUT)
 gpio.setup(echo, gpio.IN)
+end, start = None, None
 
 try:
     while True:
         gpio.output(trig, True)
         time.sleep(0.0001)
         gpio.output(trig, False)
-        end, start = None, None
 
         start_while = time.time()
         while not gpio.input(echo):
