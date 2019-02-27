@@ -22,6 +22,8 @@ try:
             start = time.time()
             if time.time() - start > 3:
                 break
+            else:
+                print("no")
 
         while gpio.input(echo):
             end = time.time()
