@@ -85,7 +85,6 @@ def send_image():
 	_ip = Crawler.find(s, "<span id='Walker'>", "</span>")
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
-	req = ""
 	try:
 		req = requests.post(URL, files=files)
 		users = req.text
