@@ -18,9 +18,11 @@ try:
         gpio.output(trig, False)
         end, start = None, None
 
+        start_while = time.time()
         while not gpio.input(echo):
             start = time.time()
-            if time.time() - start > 3:
+            print(time.time() - start_while)
+            if time.time() - start_while > 3:
                 break
 
         while gpio.input(echo):
