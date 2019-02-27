@@ -20,9 +20,11 @@ try:
 
         while not gpio.input(echo):
             start = time.time()
+		    print("a")
 
         while gpio.input(echo):
             end = time.time()
+		    print("b"`)
 
         sig_time = end - start
         distance = sig_time / 0.000058
