@@ -29,7 +29,7 @@ def ping_cm():
             distance = sig_time / 0.000058
             time.sleep(0.1)
             return int(distance)
-    except KeyboardInterrupt:
+    except RuntimeErro:
         gpio.cleanup()
 
 
