@@ -2,15 +2,16 @@
 import RPi.GPIO as gpio
 import time
 
+trig, echo = 27, 17
+gpio.setmode(gpio.BCM)
 
-def ping_cm(trig=27, echo=17):
-    gpio.setmode(gpio.BCM)
+gpio.setwarnings(False)
+gpio.setup(trig, gpio.OUT)
+gpio.setup(echo, gpio.IN)
 
-    gpio.setwarnings(False)
-    gpio.setup(trig, gpio.OUT)
-    gpio.setup(echo, gpio.IN)
+
+def ping_cm():
     end, start = None, None
-
     try:
         gpio.output(trig, True)
         time.sleep(0.0001)
