@@ -21,12 +21,23 @@
 				}
 				get.innerHTML = "請放入球" + dot;
 			}
+			function get_distance() {
+			    $.ajax({
+			        type: "GET",
+			        url: "/ultrasonic_distance",
+			        data: {}
+			    }).done(function(response) {
+			        if (response.distance <= 5) {
+			            window.open("/return_success");
+			        }
+			    });
+			}
 		setInterval(function() {
 			refresh_dot();
 		}, 1000);
-		setTimeout(function(){
-		    window.open("/return_success", "_self");
-		}, 5000);
+		setInterval(function() {
+		    get_distance();
+		});
     </script>
 </body>
 </html>
