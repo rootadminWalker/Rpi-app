@@ -12,25 +12,25 @@ def ping_cm(trig=27, echo=17):
     end, start = None, None
 
     try:
-        while True:
-            gpio.output(trig, True)
-            time.sleep(0.0001)
-            gpio.output(trig, False)
+        gpio.output(trig, True)
+        time.sleep(0.0001)
+        gpio.output(trig, False)
 
-            while not gpio.input(echo):
-                start = time.time()
-                if time.time() - start > 3:
-                    break
+        while not gpio.input(echo):
+            start = time.time()
+            if time.time() - start > 3:
+                break
 
-            while gpio.input(echo):
-                end = time.time()
-            if end is not None:
-                sig_time = end - start
-                distance = sig_time / 0.000058
-                return distance
+        while gpio.input(echo):
+            end = time.time()
+        if end is not None:
+            sig_time = end - start
+            distance = sig_time / 0.000058
+            return distance
     except KeyboardInterrupt:
         gpio.cleanup()
 
 
 if __name__ == '__main__':
-    print(ping_cm())
+    while True:
+        print(ping_cm())
