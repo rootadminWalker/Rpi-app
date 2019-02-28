@@ -8,7 +8,6 @@ gpio.setmode(gpio.BCM)
 gpio.setwarnings(False)
 gpio.setup(trig, gpio.OUT)
 gpio.setup(echo, gpio.IN)
-a = 1
 
 
 def ping_cm():

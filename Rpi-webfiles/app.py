@@ -7,6 +7,7 @@ import cv2
 import time
 import requests
 from serial import Serial, SerialException
+import Distance
 
 port = "/dev/ttyACM0"
 arduino = None
@@ -119,6 +120,13 @@ def cv2_empty():
 	data = {}
 	global _isError
 	data["empty"] = _isError
+	return jsonify(data)
+
+
+@app.route("/ultrasonic_distance")
+def ultrasonic_distance():
+	data = {}
+	data['distance'] = Distance.ping_cm()
 	return jsonify(data)
 
 
