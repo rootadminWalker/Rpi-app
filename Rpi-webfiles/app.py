@@ -123,7 +123,7 @@ def cv2_empty():
 	return jsonify(data)
 
 
-@app.route("/ultrasonic_distance")
+@app.route("/ultrasonic_distance", methods=["GET", "POST"])
 def ultrasonic_distance():
 	data = {}
 	data['distance'] = Distance.ping_cm()
