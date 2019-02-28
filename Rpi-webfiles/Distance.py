@@ -27,6 +27,7 @@ def ping_cm():
         if end is not None:
             sig_time = end - start
             distance = sig_time / 0.000058
+            time.sleep(0.5)
             return distance
     except KeyboardInterrupt:
         gpio.cleanup()
