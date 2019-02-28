@@ -47,7 +47,6 @@ def frame(cap):
 		image = frame.copy()
 
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		rects = []
 		try:
 			rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
 		except Exception as e:
