@@ -31,8 +31,14 @@ def ping_cm():
             return int(distance)
     except RuntimeError:
         gpio.cleanup()
+    except KeyboardInterrupt:
+        return 0
 
 
 if __name__ == '__main__':
     while True:
-        print(ping_cm())
+        dis = ping_cm()
+        if dis != 0:
+            print(dis)
+        else:
+            break
