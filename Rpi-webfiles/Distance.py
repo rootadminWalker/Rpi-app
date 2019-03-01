@@ -3,11 +3,17 @@ import RPi.GPIO as gpio
 import time
 
 trig, echo = 27, 17
-gpio.setmode(gpio.BCM)
 
-gpio.setwarnings(False)
-gpio.setup(trig, gpio.OUT)
-gpio.setup(echo, gpio.IN)
+
+def setup(trig_pin=27, echo_pin=17):
+    global trig, echo
+    trig = trig_pin
+    echo = echo_pin
+    gpio.setmode(gpio.BCM)
+
+    gpio.setwarnings(False)
+    gpio.setup(trig, gpio.OUT)
+    gpio.setup(echo, gpio.IN)
 
 
 def ping_cm():
