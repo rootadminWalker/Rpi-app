@@ -58,19 +58,20 @@ def frame(cap):
 		for(x, y, w, h) in rects:
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 		
-		if last_time == 0:
-			if len(rects) == 1:
-				last_time = time.time()
-				print("finding")
-			
-			else:
-				last_time = 0
-				
-		elif time.time() - last_time > 3:
-			cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
-			_ischecked = True
-			send_image()
-			break
+			if last_time == 0:
+				if len(rects) == 1:
+					last_time = time.time()
+					print("finding")
+
+				else:
+					last_time = 0
+
+			elif time.time() - last_time > 3:
+				image = frame[y:y+h, x:x+w]
+				cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
+				_ischecked = True
+				send_image()
+				break
 
 		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
