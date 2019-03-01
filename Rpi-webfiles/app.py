@@ -163,8 +163,8 @@ def welcome():
 	global users, arduino, _NoArduino
 	if not _NoArduino:
 		arduino.flush()
-		arduino.write(b"1")
 		arduino.write(b"2")
+		arduino.write(b"1")
 		_NoArduino = False
 		return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
 	else:
