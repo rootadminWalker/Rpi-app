@@ -17,6 +17,7 @@ def setup(trig_pin=27, echo_pin=17):
 
 
 def ping_cm():
+    global trig, echo
     end, start = None, None
     try:
         gpio.output(trig, True)
