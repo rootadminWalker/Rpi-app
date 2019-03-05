@@ -273,4 +273,7 @@ def dated_url_for(endpoint, **values):
 	
 	
 if __name__ == '__main__':
-	app.run(host="0.0.0.0", port=8540, debug=True)
+	try:
+		app.run(host="0.0.0.0", port=8540, debug=True)
+	except OSError as e:
+		print("failed to open because {]".format(e))
