@@ -166,7 +166,7 @@ def welcome():
 		arduino.write(b"2")
 		arduino.write(b"1")
 		_NoArduino = False
-		return "<center><h1>Hello <span style='color: red'>" + users + "</span></h1></center>"
+		return render_template("borrow_success.html")
 	else:
 		return '<h1>A little bit of problem, we will fix it</h1>'
 
