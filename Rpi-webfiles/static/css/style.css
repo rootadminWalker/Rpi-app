@@ -18,6 +18,16 @@ html, body, button{
 	text-align: center;
 }
 
+#main-center {
+	width: 600px;
+	height: 300px;
+	margin-left: 50%;
+	position: relative;
+	transform: translate(-50%, -50%);
+	margin-top: 250px;
+	text-align: center;
+}
+
 #main-camera {
 	width: 600px;
 	height: 300px;
