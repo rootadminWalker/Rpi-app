@@ -7,7 +7,12 @@ import cv2
 import time
 import requests
 from serial import Serial, SerialException
-import Distance
+
+try:	
+	import Distance
+
+except Exception as e:
+	print("Server can't' run because {}".format(e))
 
 port = "/dev/ttyACM0"
 arduino = None
@@ -168,7 +173,7 @@ def welcome():
 		_NoArduino = False
 		return render_template("borrow_success.html")
 	else:
-		return '<h1>A little bit of problem, we will fix it</h1>'
+		return render_template("empty.html")
 
 
 @app.route("/video_feed")
