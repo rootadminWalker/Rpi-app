@@ -160,6 +160,7 @@ def camera_recognition():
 	global _ischecked, _isError
 	_ischecked = False
 	_isError = False
+	send_image()
 	return render_template("recognition.html")
 
 
