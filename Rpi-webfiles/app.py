@@ -160,7 +160,6 @@ def camera_recognition():
 	global _ischecked, _isError
 	_ischecked = False
 	_isError = False
-	send_image()
 	return render_template("recognition.html")
 
 
@@ -200,6 +199,7 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
+	send_image()
 	return render_template("processings_face.html")
 
 
