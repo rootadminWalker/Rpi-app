@@ -94,6 +94,7 @@ def send_image():
 	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
 	_ip = Crawler.find(s, "<span id='Walker'>", "</span>")
 	URL = "http://" + _ip + ":4000"
+	print(URL)
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	try:
 		req = requests.post(URL, files=files)
