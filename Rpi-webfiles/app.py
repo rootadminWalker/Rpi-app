@@ -82,8 +82,7 @@ def frame(cap):
 					print(e)
 				break
 
-		image2 = frame[520:720, 520:720]
-		_, jpg = cv2.imencode('.jpg', image2)
+		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
 			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
 			  b'\r\n\r\n')
