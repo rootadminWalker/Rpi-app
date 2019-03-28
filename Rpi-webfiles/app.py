@@ -75,7 +75,11 @@ def frame(cap):
 				image = frame[y:y+h, x:x+w]
 				cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
 				_ischecked = True
-				send_image()
+				try:
+					send_image()
+
+				except Exception as e:
+					print(e)
 				break
 
 		_, jpg = cv2.imencode('.jpg', image)
@@ -199,7 +203,6 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
-	send_image()
 	return render_template("processings_face.html")
 
 
