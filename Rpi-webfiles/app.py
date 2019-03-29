@@ -83,7 +83,7 @@ def frame(cap):
 				break
 
 		show_out_image = frame[520:520+720, 520:520+720]
-		_, jpg = cv2.imencode('.jpg', show_out_image)
+		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
 			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
 			  b'\r\n\r\n')
