@@ -251,7 +251,7 @@ def no_forgot_password():
 @app.route("/borrow_success")
 def borrow_success():
 	global users
-	return render_template("borrow_success.html", user=users)
+	return render_template("borrow_success.html")
 
 
 @app.route("/enter_admin_password")

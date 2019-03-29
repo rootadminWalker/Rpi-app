@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     {% include "ico.html" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 <body>
     <div id="container">
         <div id="main-center">
             <h1>借球成功，請拿取</h1>
-            <p>你好，{{ user }}</p>
+            <p id="user-data">你好，</p>
             <a class="problem_camera" href="/">返回</a>
         </div>
     </div>
+    <script>
+        var user;
+        var user_data = document.getElementById("user-data");
+        $.ajax({
+            type: 'GET',
+            url: "/username",
+            data: {}
+        }).done(function (response) {
+            user_data.innerHTML = "你好，" + user;
+        });
+    </script>
 </body>
 </html>
