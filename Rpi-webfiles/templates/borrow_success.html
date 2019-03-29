@@ -14,14 +14,13 @@
         </div>
     </div>
     <script>
-        var user;
         var user_data = document.getElementById("user-data");
         $.ajax({
             type: 'GET',
             url: "/username",
             data: {}
         }).done(function (response) {
-            user_data.innerHTML = "你好，" + user;
+            user_data.innerHTML = "你好，" + response.user;
         });
     </script>
 </body>
