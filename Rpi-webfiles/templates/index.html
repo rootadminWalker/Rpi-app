@@ -25,7 +25,7 @@
 		var type = document.getElementById("type");
 		var rain = document.getElementById("rain");
 		var warning_text = document.getElementById("warning");
-		var rainning_count, weather_type, temperature;
+		var rainning_count, temperature;
 		
 		function refresh_weather() {
 			$.ajax({
@@ -38,7 +38,6 @@
 					rain.innerHTML = response.rain;
 					warning_text.innerHTML = "天氣資訊來自<a id='from_place' href=''>http://home.puiching.edu.mo/~pcama/</a>，天氣資訊最後" + response.last_update_time;
 					raining_count = rain.innerHTML;
-					weather_type = type.innerHTML;
 					temperature = temp.innerHTML;
 			});
 		}
@@ -48,7 +47,6 @@
 		function get_ball(event) {
 			if (detect_raining_count() == true || detect_temperature() == true) {
 				warning_text.innerHTML = "天氣不好，所以借球服務巳停止"; 
-				console.log(raining_count, weather_type, temperature);
 			} else {
 				get_ball_borrow();
 			}
@@ -59,8 +57,8 @@
 		}
 		function detect_raining_count() {
 			raining_count = raining_count.replace("mm", "");
-			weather_type = parseInt(weather_type);
-			if (weather_type >= 3) {
+			rainning_count = parseInt(raining_count);
+			if (rainning_count >= 0.5) {
 				return true;
 			} else {
 				return false;
