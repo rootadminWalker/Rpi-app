@@ -40,7 +40,7 @@ def connect_arduino():
 
 
 def frame(cap):
-	global _ischecked, face_cascade, _isError
+	global _ischecked, face_cascade, _isError, _ErrorCameraMessage
 	last_time = 0
 	while True:
 		_, frame = cap.read()
@@ -48,6 +48,7 @@ def frame(cap):
 			frame.copy()
 		except AttributeError as e:
 			_isError = True
+			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			break
 
 		image = frame.copy()
@@ -58,6 +59,7 @@ def frame(cap):
 		except Exception as e:
 			cap.release()
 			_isError = True
+			_ErrorCameraMessage = "FACE_LIBRARY_NOT_FOUND"
 			break
 
 		for(x, y, w, h) in rects:
@@ -157,7 +159,8 @@ def return_success():
 
 @app.route("/camera_is_empty")
 def camera_is_empty():
-	return render_template("empty.html")
+	global _ErrorCameraMessage
+	return render_template("empty.html", errormessage=_ErrorCameraMessage)
 
 
 @app.route("/camera_recognition")
