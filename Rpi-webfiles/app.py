@@ -149,7 +149,7 @@ def send_error():
 	global _ErrorCameraMessage
 	topic = "Camera failed"
 	msg = Message(topic, sender="root48960@gmail.com ", recipients=["chiioleong519@gmail.com"])
-	msg.html = "<h1>The camera of the basketball machine has failed, please come and fix it<br>Error code: " + _ErrorCameraMessage + "</h1> "
+	msg.html = "<h1>The camera of the basketball machine has failed, please come and fix it</h1><br>Error code: " + _ErrorCameraMessage
 	mail.send(msg)
 	return render_template("error_send.html"), "message sent"
 
