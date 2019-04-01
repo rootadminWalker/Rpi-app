@@ -146,8 +146,10 @@ def ultrasonic_distance():
 
 @app.route("/send_error")
 def send_error():
-	message = "<h1>The camera of the basketball machine has failed, please come and fix it</h1>"
-	msg = Message(message, sender="root48960@gmail.com ", recipients=["chiioleong519@gmail.com"])
+	global _ErrorCameraMessage
+	topic = "Camera failed"
+	msg = Message(topic, sender="root48960@gmail.com ", recipients=["chiioleong519@gmail.com"])
+	msg.html = "<h1>The camera of the basketball machine has failed, please come and fix it<br>Error code: " + _ErrorCameraMessage + "</h1> "
 	mail.send(msg)
 	return render_template("error_send.html"), "message sent"
 
