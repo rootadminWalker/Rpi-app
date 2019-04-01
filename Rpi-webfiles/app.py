@@ -48,6 +48,7 @@ def frame(cap):
 		except AttributeError as e:
 			_isError = True
 			cap.release()
+			print("Error because can't connect camera")
 			break
 
 		image = frame.copy()
@@ -58,6 +59,7 @@ def frame(cap):
 		except Exception as e:
 			cap.release()
 			_isError = True
+			print("Error because library error")
 			break
 
 		for(x, y, w, h) in rects:
