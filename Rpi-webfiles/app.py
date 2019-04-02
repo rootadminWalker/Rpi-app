@@ -27,7 +27,7 @@ user = False
 _isError = False
 password = "root_administrator"
 users = ''
-_ErrorCameraMessage = "Error code: CAMERA_CONNECTION_ERROR"
+_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 
 
 def connect_arduino():
