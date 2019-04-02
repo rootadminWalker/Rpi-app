@@ -109,6 +109,8 @@ def send_image():
 
 @app.route("/")
 def index():
+	global _ErrorTimes
+	_ErrorTimes = 0
 	connect_arduino()
 	return render_template("index.html")
 
@@ -211,8 +213,6 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
-	global _ErrorTimes
-	_ErrorTimes = 0
 	return render_template("processings_face.html")
 
 
