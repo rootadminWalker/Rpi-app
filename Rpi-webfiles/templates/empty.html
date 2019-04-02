@@ -17,8 +17,7 @@
     </div>
     <script type="text/javascript">
         var code = document.getElementById("Error-message");
-        code = code.replace("Error code: ", "");
-        if (code == "CAMERA_CONNECTION_ERROR") {
+        if (code == "Error code: CAMERA_CONNECTION_ERROR") {
             window.open("/camera_recognition", "_self");
         }
         function send_fix_message() {
