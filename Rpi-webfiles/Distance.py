@@ -34,7 +34,7 @@ def ping_cm():
         if end is not None:
             sig_time = end - start
             distance = sig_time / 0.000058
-            time.sleep(0.01)
+            time.sleep(0.0001)
             return int(distance)
     except RuntimeError:
         gpio.cleanup()
