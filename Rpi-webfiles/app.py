@@ -211,6 +211,8 @@ def username():
 
 @app.route("/recognize_image", methods=['POST', 'GET'])
 def recognize_image():
+	global _ErrorTimes
+	_ErrorTimes = 0
 	return render_template("processings_face.html")
 
 
