@@ -162,7 +162,7 @@ def return_success():
 @app.route("/camera_is_empty")
 def camera_is_empty():
 	global _ErrorCameraMessage
-	return render_template("empty.html", errormessage=_ErrorCameraMessage)
+	return render_template("empty.html", errormessage="Error code: CAMERA_CONNECTION_ERROR")
 
 
 @app.route("/camera_recognition")
