@@ -181,8 +181,6 @@ def welcome():
 	if not _NoArduino:
 		arduino.flush()
 		arduino.write(b"2")
-		arduino.write(b"2")
-		arduino.write(b"1")
 		arduino.write(b"1")
 		_NoArduino = False
 		return render_template("borrow_success.html")
