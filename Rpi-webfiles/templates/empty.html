@@ -18,7 +18,7 @@
     <script type="text/javascript">
         var code = document.getElementById("Error-message").innerHTML;
         function connect_camera_again() {
-            if (code == "Error code: CAMERA_CONNECTION_ERROR") {
+            if (code == "Error code: CAMERA_CONNECTION_ERROR" || code == "Error code: FACE_LIBRARY_NOT_FOUND") {
                 window.open("/camera_recognition", "_self");
             }
         }
