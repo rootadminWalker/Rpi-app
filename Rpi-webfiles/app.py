@@ -27,7 +27,7 @@ user = False
 _isError = False
 password = "root_administrator"
 users = ''
-_ErrorCameraMessage = ""
+_ErrorCameraMessage = "Error code: CAMERA_CONNECTION_ERROR"
 
 
 def connect_arduino():
@@ -162,7 +162,7 @@ def return_success():
 @app.route("/camera_is_empty")
 def camera_is_empty():
 	global _ErrorCameraMessage
-	return render_template("empty.html", errormessage="Error code: CAMERA_CONNECTION_ERROR")
+	return render_template("empty.html", errormessage=_ErrorCameraMessage)
 
 
 @app.route("/camera_recognition")
