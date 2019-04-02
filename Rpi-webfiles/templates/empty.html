@@ -17,14 +17,19 @@
     </div>
     <script type="text/javascript">
         var code = document.getElementById("Error-message");
-        if (code == "Error code: CAMERA_CONNECTION_ERROR") {
-            window.open("/camera_recognition", "_self");
+        function connect_camera_again() {
+            if (code == "Error code: CAMERA_CONNECTION_ERROR") {
+                window.open("/camera_recognition", "_self");
+            }
         }
         function send_fix_message() {
             error = document.getElementById("error_message");
             error.innerHTML = "請稍等...";
             window.open("/send_error", "_self");
         }
+        setInterval(function() {
+            connect_camera_again();
+        }, 1000);
     </script>
 </body>
 </html>
