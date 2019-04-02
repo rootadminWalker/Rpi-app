@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 mail.init_app(app)
 _ischecked = False
-face_cascade = cv2.CascadeClassifier('/home/pi/workspace/libs/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('/home/pi/workspace/libs/haarcascade_frontalface_alt2.xml')
 user = False
 _isError = False
 password = "root_administrator"
