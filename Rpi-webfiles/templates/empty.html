@@ -17,6 +17,7 @@
     </div>
     <script type="text/javascript">
         var code = document.getElementById("Error-message").innerHTML;
+        var errortimes = "{{ ErrorTimes }}"
         function connect_camera_again() {
             if (code == "Error code: CAMERA_CONNECTION_ERROR" || code == "Error code: FACE_LIBRARY_NOT_FOUND") {
                 window.open("/camera_recognition", "_self");
@@ -27,9 +28,12 @@
             error.innerHTML = "請稍等...";
             window.open("/send_error", "_self");
         }
-        setInterval(function() {
+        var loop_start = setInterval(function() {
             connect_camera_again(); 
         }, 1000);
+        if (errortimes >= 3) {
+            clearInterval(loop_start);
+        }
     </script>
 </body>
 </html>
