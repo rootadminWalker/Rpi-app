@@ -181,11 +181,14 @@ def camera_recognition():
 def welcome():
 	global users, arduino, _NoArduino
 	if not _NoArduino:
-		arduino.flush()
-		arduino.write(b"2")
-		arduino.write(b"1")
-		_NoArduino = False
-		return render_template("borrow_success.html")
+		try:
+			arduino.flush()
+			arduino.write(b"2")
+			arduino.write(b"1")
+			_NoArduino = False
+			return render_template("borrow_success.html")
+		except Exception:
+			return render_template("empty.html")
 	else:
 		return render_template("empty.html")
 
