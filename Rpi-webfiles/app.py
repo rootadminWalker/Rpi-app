@@ -46,13 +46,12 @@ def frame(cap):
 	while True:
 		try:
 			_, frame = cap.read()
-			frame.copy()
 		except AttributeError:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			break
 
-		image = frame.copy()
+		image = None
 
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		try:
@@ -67,7 +66,7 @@ def frame(cap):
 			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 		
 			if last_time == 0:
-				if len(rects) == 1:
+				if len(rects) >= 1:
 					last_time = time.time()
 					print("finding")
 
@@ -86,7 +85,6 @@ def frame(cap):
 					print(e)
 				break
 
-		show_out_image = frame[520:520+720, 520:520+720]
 		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
 			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
@@ -109,7 +107,8 @@ def send_image():
 
 @app.route("/")
 def index():
-	global _ErrorTimes
+	global _ErrorTimes, users
+	users = ""
 	_ErrorTimes = 0
 	connect_arduino()
 	return render_template("index.html")
