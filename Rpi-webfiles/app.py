@@ -43,7 +43,9 @@ def connect_arduino():
 def frame(cap):
 	global _ischecked, face_cascade, _isError, _ErrorCameraMessage
 	last_time = 0
+	frame = None
 	while True:
+		global frame
 		try:
 			_, frame = cap.read()
 		except AttributeError:
