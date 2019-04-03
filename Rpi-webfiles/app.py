@@ -29,6 +29,7 @@ password = "root_administrator"
 users = ''
 _ErrorCameraMessage = ""
 _ErrorTimes = 0
+frame = None
 
 
 def connect_arduino():
@@ -40,12 +41,10 @@ def connect_arduino():
 		print("The arduino port is invalid. Try another port")
 
 
-def frame(cap):
-	global _ischecked, face_cascade, _isError, _ErrorCameraMessage
+def frame_image(cap):
+	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame
 	last_time = 0
-	frame = None
 	while True:
-		global frame
 		try:
 			_, frame = cap.read()
 		except AttributeError:
@@ -197,7 +196,7 @@ def welcome():
 @app.route("/video_feed")
 def video_feed():
 	cap = cv2.VideoCapture(0)
-	return Response(frame(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
+	return Response(frame_image(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route("/success", methods=["GET", "POST"])
