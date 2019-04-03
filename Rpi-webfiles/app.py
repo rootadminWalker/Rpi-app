@@ -14,6 +14,7 @@ try:
 except Exception as e:
 	print("Server can't' run because {}".format(e))
 
+cap = cv2.VideoCapture(0)
 port = "/dev/ttyACM0"
 arduino = None
 _NoArduino = False
@@ -192,7 +193,7 @@ def welcome():
 
 @app.route("/video_feed")
 def video_feed():
-	cap = cv2.VideoCapture(0)
+	global cap
 	return Response(frame(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
