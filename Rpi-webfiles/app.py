@@ -30,6 +30,7 @@ users = ''
 _ErrorCameraMessage = ""
 _ErrorTimes = 0
 frame = None
+_isBorrow = False
 
 
 def connect_arduino():
@@ -47,6 +48,7 @@ def frame_image(cap):
 	while True:
 		try:
 			_, frame = cap.read()
+			frame.copy()
 		except AttributeError:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
@@ -238,11 +240,13 @@ def password_get():
 	return jsonify(data)
 
 
-@app.route('/get_face_count')
-def get_face_count():
-	global user
-	if user:
-		return render_template("Success.html")
+@app.route('/is_return_ball')
+def is_return_ball():
+	global _isBorrow
+	data = {}
+	data["Need_borrow"] = _isBorrow
+	return jsonify(data)
+
 
 
 @app.route("/access")
