@@ -59,6 +59,11 @@
 		}
 
 		function get_ball_borrow(event) {
+			$.ajax({
+				method: "POST",
+				url: "/return_status",
+				data: {'val': false}
+			});
 			window.open("/camera_recognition", "_self");
 		}
 		function detect_raining_count() {
@@ -79,12 +84,12 @@
 			}
 		}
 		function return_ball_back(event) {
-			window.open("/camera_recognition", "_self");
 			$.ajax({
 				method: "POST",
 				url: "/return_status",
-				data: true
+				data: {'val': true}
 			});
+			window.open("/camera_recognition", "_self");
 		}
 		function settings(event) {
 			window.open("/enter_admin_password", "_self")

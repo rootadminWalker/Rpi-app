@@ -23,14 +23,24 @@
 				processing.innerHTML = "處理中" + dot;
 			}
 
-			function get_username() {
+			function situation_username() {
 				$.ajax({
 					type: "GET",
 					url: "/username",
 					data: {}
 				}).done(function(response) {
 					if (response.user != "") {
-						window.open("/welcome", "_self");
+						$.ajax({
+							method: "GET",
+							url: "/return_status",
+							data: {}
+						}).done(function(response) {
+							if (response.status == false) {
+								window.open("/welcome", "_self");
+							} else {
+								window.open("/return_ball");
+							}
+						});
 					} else {
 						window.open("/denied", "_self");
 					}
@@ -39,7 +49,7 @@
 
 			setInterval(function() {
 				refresh_dot();
-				get_username();
+				situation_username();
 			}, 1000);
 
 		</script>
