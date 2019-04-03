@@ -79,7 +79,12 @@
 			}
 		}
 		function return_ball_back(event) {
-			window.open("/return_ball", "_self");
+			window.open("/camera_recognition", "_self");
+			$.ajax({
+				method: "POST",
+				url: "/return_status",
+				data: true
+			});
 		}
 		function settings(event) {
 			window.open("/enter_admin_password", "_self")
