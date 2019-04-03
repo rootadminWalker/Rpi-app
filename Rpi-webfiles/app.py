@@ -168,7 +168,7 @@ def return_success():
 def return_status():
 	global _isReturn
 	data = {}
-	_isReturn = request.form['val']
+	_isReturn = request.get_json("val")
 	data['status'] = _isReturn
 	return jsonify(data)
 
