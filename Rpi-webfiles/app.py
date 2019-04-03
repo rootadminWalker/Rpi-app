@@ -59,7 +59,7 @@ def frame_image(cap):
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		try:
 			rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
-		except Exception as e:
+		except Exception:
 			cap.release()
 			_isError = True
 			_ErrorCameraMessage = "FACE_LIBRARY_NOT_FOUND"
