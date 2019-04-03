@@ -26,6 +26,12 @@
 		var rain = document.getElementById("rain");
 		var warning_text = document.getElementById("warning");
 		var rainning_count, temperature;
+
+		$.ajax({
+			method: "GET",
+			url: "/username",
+			data: {}
+		});
 		
 		function refresh_weather() {
 			$.ajax({
