@@ -170,6 +170,7 @@ def return_status():
 	data = {}
 	_isReturn = request.form['']
 	data['status'] = _isReturn
+	print(data)
 	return jsonify(data)
 
 
