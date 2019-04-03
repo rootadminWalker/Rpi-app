@@ -44,8 +44,8 @@ def frame(cap):
 	global _ischecked, face_cascade, _isError, _ErrorCameraMessage
 	last_time = 0
 	while True:
-		_, frame = cap.read()
 		try:
+			_, frame = cap.read()
 			frame.copy()
 		except AttributeError as e:
 			_isError = True
