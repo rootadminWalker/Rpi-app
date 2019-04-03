@@ -17,6 +17,7 @@
     </div>
     <script type="text/javascript">
         var code = document.getElementById("Error-message").innerHTML;
+        var message = document.getElementById("error_message")
         var errortimes = "{{ ErrorTimes }}";
         function connect_camera_again() {
             if (code == "Error code: CAMERA_CONNECTION_ERROR" || code == "Error code: FACE_LIBRARY_NOT_FOUND") {
@@ -33,7 +34,7 @@
         }, 1000);
         if (errortimes >= 3) {
             clearInterval(loop_start);
-            code.innerHTML = "系統出現了問題，請按故障按鈕或回主頁";
+            message.innerHTML = "系統出現了問題，請按故障按鈕或回主頁";
         }
     </script>
 </body>
