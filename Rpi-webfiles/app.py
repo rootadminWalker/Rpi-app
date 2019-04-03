@@ -46,6 +46,7 @@ def frame(cap):
 	while True:
 		try:
 			_, frame = cap.read()
+			frame.copy
 		except AttributeError:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
