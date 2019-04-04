@@ -48,9 +48,7 @@ def frame_image(cap):
 	while True:
 		try:
 			ret, frame = cap.read()
-			if ret:
-				frame.copy()
-			else:
+			if not ret:
 				cap.release()
 				cap = cv2.VideoCapture(0)
 		except Exception:
