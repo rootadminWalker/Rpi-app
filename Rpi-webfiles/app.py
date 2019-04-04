@@ -50,6 +50,7 @@ def frame_image(cap):
 		try:
 			ret, frame = cap.read()
 			if not ret:
+				print("Can't read cam, reconnecting")
 				cap.release()
 				cap = cv2.VideoCapture(0)
 				if cap.read()[:1]:
@@ -58,6 +59,7 @@ def frame_image(cap):
 				else:
 					continue
 			if cap.read()[1:] is not None:
+				print("Copying")
 				frame.copy()
 
 		except Exception as e:
