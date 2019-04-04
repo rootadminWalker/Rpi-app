@@ -59,9 +59,10 @@ def frame_image(cap):
 					continue
 			frame.copy()
 
-		except Exception:
+		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
+			print("Error at: " + str(e))
 			break
 
 		image = frame.copy()
