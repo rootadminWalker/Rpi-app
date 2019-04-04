@@ -32,6 +32,7 @@ _ErrorTimes = 0
 frame = None
 _isReturn = False
 ret = True
+image = None
 
 
 def connect_arduino():
@@ -44,7 +45,7 @@ def connect_arduino():
 
 
 def frame_image(cap):
-	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret
+	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret, image
 	last_time = 0
 	while True:
 		try:
@@ -60,15 +61,13 @@ def frame_image(cap):
 					continue
 			else:
 				print("Copying")
-				frame.copy()
+				image = frame.copy()
 
 		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			print("Error at: " + str(e))
 			break
-
-		image = frame.copy()
 
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		try:
