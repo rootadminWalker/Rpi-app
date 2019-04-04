@@ -164,6 +164,15 @@ def return_success():
 	return render_template("return_ball_success.html")
 
 
+@app.route('/return_status', methods=["POST", "GET"])
+def return_status():
+	global _isReturn
+	data = {}
+	_isReturn = request.get_json("val")
+	data['status'] = _isReturn
+	return jsonify(data)
+
+
 @app.route("/camera_is_empty")
 def camera_is_empty():
 	global _ErrorCameraMessage, _ErrorTimes

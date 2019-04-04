@@ -32,17 +32,17 @@
 					if (response.user != "") {
 						$.ajax({
 							method: "GET",
-							url: "/",
+							url: "/return_status",
 							data: {}
 						}).done(function(response) {
 							if (response.status == false) {
-								// window.open("/welcome", "_self");
+								window.open("/welcome", "_self");
 							} else {
-								// window.open("/return_ball");
+								window.open("/return_ball");
 							}
 						});
 					} else {
-						// window.open("/denied", "_self");
+						window.open("/denied", "_self");
 					}
 				});
 			}
