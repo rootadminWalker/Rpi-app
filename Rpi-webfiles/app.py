@@ -50,13 +50,7 @@ def frame_image(cap):
 	while True:
 		try:
 			ret, frame = cap.read()
-			if not ret:
-				print("Can't read cam, reconnecting")
-				cap.release()
-				cap = cv2.VideoCapture(0)
-			else:
-				print("Copying")
-				frame.copy()
+			frame.copy()
 		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
