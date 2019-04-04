@@ -31,6 +31,7 @@ _ErrorCameraMessage = ""
 _ErrorTimes = 0
 frame = None
 _isReturn = False
+ret = True
 
 
 def connect_arduino():
@@ -43,12 +44,14 @@ def connect_arduino():
 
 
 def frame_image(cap):
-	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame
+	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret
 	last_time = 0
 	while True:
 		try:
 			ret, frame = cap.read()
 			frame.copy()
+
+		except Exception:
 			if not ret:
 				cap.release()
 				cap = cv2.VideoCapture(0)
@@ -57,8 +60,6 @@ def frame_image(cap):
 					cap = cv2.VideoCapture(1)
 				else:
 					continue
-
-		except Exception:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			break
