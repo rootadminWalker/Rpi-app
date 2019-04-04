@@ -123,9 +123,10 @@ def send_image():
 
 @app.route("/")
 def index():
-	global _ErrorTimes, users
+	global _ErrorTimes, users, _ischecked
 	users = ""
 	_ErrorTimes = 0
+	_ischecked = False
 	connect_arduino()
 	return render_template("index.html")
 
