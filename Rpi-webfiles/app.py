@@ -71,6 +71,7 @@ def frame_image(cap):
 		except Exception:
 			cap.release()
 			_isError = True
+			print(_isError)
 			_ErrorCameraMessage = "FACE_LIBRARY_NOT_FOUND"
 			break
 
