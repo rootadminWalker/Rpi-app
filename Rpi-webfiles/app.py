@@ -57,11 +57,6 @@ def frame_image(cap):
 				if cap.read()[:1]:
 					cap.release()
 					cap = cv2.VideoCapture(1)
-					if cap.read()[:1]:
-						cap.release()
-						cap = cv2.VideoCapture(0)
-				else:
-					continue
 			else:
 				print("Copying")
 				image = frame.copy()
