@@ -35,7 +35,7 @@
 							url: "/return_status_getter",
 							data: {}
 						}).done(function(response) {
-							if (response.status == true) {
+							if (response.status == false) {
 								window.open("/welcome", "_self");
 							} else {
 								window.open("/return_ball", "_self");
