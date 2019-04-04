@@ -47,20 +47,11 @@ def frame_image(cap):
 	last_time = 0
 	while True:
 		try:
-			ret, frame = cap.read()
-			if frame is not None:
-				frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-			else:
-				continue
-
-			if not ret:
-				cap.release()
-				cap = cv2.VideoCapture(0)
-				continue
-		except Exception as e:
+			_, frame = cap.read()
+			frame.copy()
+		except Exception:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
-			print("Error at: " + str(e))
 			break
 
 		image = frame.copy()
@@ -71,7 +62,6 @@ def frame_image(cap):
 		except Exception:
 			cap.release()
 			_isError = True
-			print(_isError)
 			_ErrorCameraMessage = "FACE_LIBRARY_NOT_FOUND"
 			break
 
@@ -120,9 +110,7 @@ def send_image():
 
 @app.route("/")
 def index():
-	global _ErrorTimes, users, _ischecked, _isError
-	_ischecked = False
-	_isError = False
+	global _ErrorTimes, users
 	users = ""
 	_ErrorTimes = 0
 	connect_arduino()
@@ -202,6 +190,9 @@ def camera_is_empty():
 
 @app.route("/camera_recognition")
 def camera_recognition():
+	global _ischecked, _isError
+	_ischecked = False
+	_isError = False
 	return render_template("recognition.html")
 
 
