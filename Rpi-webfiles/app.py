@@ -164,11 +164,19 @@ def return_success():
 	return render_template("return_ball_success.html")
 
 
-@app.route('/return_status', methods=["POST", "GET"])
+@app.route('/return_status_setter', methods=["POST", "GET"])
 def return_status():
 	global _isReturn
 	data = {}
-	_isReturn = request.get_json("val")
+	_isReturn = request.form["val"]
+	data['status'] = _isReturn
+	return jsonify(data)
+
+
+@app.route("/return_status_getter", methods=["POST", "GET"])
+def return_status_getter():
+	global _isReturn
+	data = {}
 	data['status'] = _isReturn
 	return jsonify(data)
 

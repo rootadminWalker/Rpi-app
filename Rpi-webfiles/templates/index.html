@@ -61,7 +61,7 @@
 		function get_ball_borrow(event) {
 			$.ajax({
 				method: "POST",
-				url: "/return_status",
+				url: "/return_status_setter",
 				data: {'val': false}
 			});
 			window.open("/camera_recognition", "_self");
@@ -86,7 +86,7 @@
 		function return_ball_back(event) {
 			$.ajax({
 				method: "POST",
-				url: "/return_status",
+				url: "/return_status_setter",
 				data: {'val': true}
 			});
 			window.open("/camera_recognition", "_self");
