@@ -57,7 +57,8 @@ def frame_image(cap):
 					cap = cv2.VideoCapture(1)
 				else:
 					continue
-			frame.copy()
+			if cap.read()[1:] is not None:
+				frame.copy()
 
 		except Exception as e:
 			_isError = True
