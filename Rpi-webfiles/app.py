@@ -48,7 +48,11 @@ def frame_image(cap):
 	while True:
 		try:
 			ret, frame = cap.read()
-			frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+			if frame is not None:
+				frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+			else:
+				continue
+
 			if not ret:
 				cap.release()
 				cap = cv2.VideoCapture(0)
