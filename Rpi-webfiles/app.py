@@ -49,9 +49,10 @@ def frame_image(cap):
 		try:
 			_, frame = cap.read()
 			frame.copy()
-		except AttributeError:
+		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
+			print(e)
 			break
 
 		image = frame.copy()
