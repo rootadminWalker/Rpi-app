@@ -119,7 +119,9 @@ def send_image():
 
 @app.route("/")
 def index():
-	global _ErrorTimes, users
+	global _ErrorTimes, users, _ischecked, _isError
+	_ischecked = False
+	_isError = False
 	users = ""
 	_ErrorTimes = 0
 	connect_arduino()
@@ -199,9 +201,6 @@ def camera_is_empty():
 
 @app.route("/camera_recognition")
 def camera_recognition():
-	global _ischecked, _isError
-	_ischecked = False
-	_isError = False
 	return render_template("recognition.html")
 
 
