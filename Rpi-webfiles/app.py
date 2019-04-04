@@ -128,7 +128,8 @@ def index():
 
 @app.route("/return_ball")
 def return_ball():
-	return render_template("return_ball.html")
+	global users
+	return render_template("return_ball.html", username=users)
 
 
 @app.route("/get_weather")
