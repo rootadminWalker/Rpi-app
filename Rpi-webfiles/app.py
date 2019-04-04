@@ -47,8 +47,8 @@ def frame_image(cap):
 	last_time = 0
 	while True:
 		try:
-			_, frame = cap.read()
-			frame.copy()
+			ret, frame = cap.read()
+			if not ret: continue
 		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
