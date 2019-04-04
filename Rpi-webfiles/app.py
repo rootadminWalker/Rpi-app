@@ -51,7 +51,13 @@ def frame_image(cap):
 			frame.copy()
 			if not ret:
 				cap.release()
-				cap = cv2.VideoCapture(1)
+				cap = cv2.VideoCapture(0)
+				if not cap.read()[:1]:
+					cap.release()
+					cap = cv2.VideoCapture(1)
+				else:
+					continue
+
 		except Exception:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
