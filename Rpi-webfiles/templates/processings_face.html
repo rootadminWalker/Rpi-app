@@ -35,10 +35,10 @@
 							url: "/return_status_getter",
 							data: {}
 						}).done(function(response) {
-							if (response.status == false) {
+							if (response.status == true) {
 								window.open("/welcome", "_self");
 							} else {
-								window.open("/return_ball");
+								window.open("/return_ball", "_self");
 							}
 						});
 					} else {
