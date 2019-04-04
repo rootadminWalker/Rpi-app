@@ -59,7 +59,7 @@ def frame_image(cap):
 					cap = cv2.VideoCapture(1)
 					if cap.read()[:1]:
 						cap.release()
-						cap = cv2.VideoCapture()
+						cap = cv2.VideoCapture(0)
 				else:
 					continue
 			else:
