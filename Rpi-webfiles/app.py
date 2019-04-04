@@ -56,14 +56,14 @@ def frame_image(cap):
 				cap = cv2.VideoCapture(0)
 			else:
 				print("Copying")
-				image = frame.copy()
-
+				frame.copy()
 		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			print("Error at: " + str(e))
 			break
 
+		image = frame.copy()
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		try:
 			rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
