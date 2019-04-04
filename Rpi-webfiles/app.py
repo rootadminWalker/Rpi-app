@@ -110,11 +110,10 @@ def send_image():
 
 @app.route("/")
 def index():
-	global _ErrorTimes, users, _isReturn
+	global _ErrorTimes, users
 	users = ""
 	_ErrorTimes = 0
 	connect_arduino()
-	_isReturn = request.get_json("val")
 	return render_template("index.html")
 
 
@@ -163,14 +162,6 @@ def send_error():
 @app.route("/return_success")
 def return_success():
 	return render_template("return_ball_success.html")
-
-
-@app.route('/return_status', methods=["POST", "GET"])
-def return_status():
-	global _isReturn
-	data = {}
-	data['status'] = _isReturn
-	return jsonify(data)
 
 
 @app.route("/camera_is_empty")

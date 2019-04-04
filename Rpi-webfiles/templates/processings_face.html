@@ -32,7 +32,7 @@
 					if (response.user != "") {
 						$.ajax({
 							method: "GET",
-							url: "/return_status",
+							url: "/",
 							data: {}
 						}).done(function(response) {
 							if (response.status == false) {
