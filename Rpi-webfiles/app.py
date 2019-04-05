@@ -47,6 +47,7 @@ def connect_arduino():
 def frame_image(cap):
 	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret, image
 	last_time = 0
+	os.system("rm ./static/temp.jpg")
 	while True:
 		try:
 			ret, frame = cap.read()
@@ -91,7 +92,6 @@ def frame_image(cap):
 				_isError = True
 				_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 				print("Error at: " + str(e))
-				os.system("rm /static/temp.jpg")
 			else:
 				break
 
