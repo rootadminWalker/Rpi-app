@@ -87,10 +87,12 @@ def frame_image(cap):
 				raise AttributeError("Camera can't connect")
 
 		except Exception as e:
-			_isError = True
-			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
-			print("Error at: " + str(e))
-			break
+			if _ErrorTimes >= 3:
+				_isError = True
+				_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
+				print("Error at: " + str(e))
+			else:
+				break
 
 		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
