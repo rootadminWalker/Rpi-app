@@ -50,45 +50,43 @@ def frame_image(cap):
 	while True:
 		try:
 			ret, frame = cap.read()
-			frame.copy()
+			image = frame.copy()
+			gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+			try:
+				rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
+			except Exception:
+				cap.release()
+				_isError = True
+				_ErrorCameraMessage = "FACE_LIBRARY_NOT_FOUND"
+				break
+
+			for (x, y, w, h) in rects:
+				cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+				if last_time == 0:
+					if len(rects) >= 1:
+						last_time = time.time()
+						print("finding")
+
+					else:
+						last_time = 0
+
+				elif time.time() - last_time > 3:
+					cap.release()
+					image = frame[y:y + h, x:x + w]
+					cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
+					_ischecked = True
+					try:
+						send_image()
+
+					except Exception as e:
+						print(e)
+					break
 		except Exception as e:
 			_isError = True
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			print("Error at: " + str(e))
 			break
-
-		image = frame.copy()
-		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		try:
-			rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
-		except Exception:
-			cap.release()
-			_isError = True
-			_ErrorCameraMessage = "FACE_LIBRARY_NOT_FOUND"
-			break
-
-		for(x, y, w, h) in rects:
-			cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
-		
-			if last_time == 0:
-				if len(rects) >= 1:
-					last_time = time.time()
-					print("finding")
-
-				else:
-					last_time = 0
-
-			elif time.time() - last_time > 3:
-				cap.release()
-				image = frame[y:y+h, x:x+w]
-				cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
-				_ischecked = True
-				try:
-					send_image()
-
-				except Exception as e:
-					print(e)
-				break
 
 		_, jpg = cv2.imencode('.jpg', image)
 		yield(b'--frame\r\n'
