@@ -95,10 +95,11 @@ def frame_image(cap):
 			else:
 				break
 
-		_, jpg = cv2.imencode('.jpg', image)
-		yield(b'--frame\r\n'
-			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
-			  b'\r\n\r\n')
+		if os.path.exists("./static/temp.jpg"):
+			_, jpg = cv2.imencode('.jpg', image)
+			yield(b'--frame\r\n'
+				  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
+				  b'\r\n\r\n')
 
 
 def send_image():
