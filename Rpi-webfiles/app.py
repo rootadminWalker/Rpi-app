@@ -91,6 +91,7 @@ def frame_image(cap):
 				_isError = True
 				_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 				print("Error at: " + str(e))
+				os.system("rm /static/temp.jpg")
 			else:
 				break
 
