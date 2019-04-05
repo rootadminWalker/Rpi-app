@@ -48,6 +48,7 @@ def frame_image(cap):
 	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret, image
 	last_time = 0
 	os.system("rm ./static/temp.jpg")
+	image = None
 	while True:
 		try:
 			ret, frame = cap.read()
@@ -95,11 +96,10 @@ def frame_image(cap):
 			else:
 				break
 
-		if os.path.exists("./static/temp.jpg"):
-			_, jpg = cv2.imencode('.jpg', image)
-			yield(b'--frame\r\n'
-				  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
-				  b'\r\n\r\n')
+		_, jpg = cv2.imencode('.jpg', image)
+		yield(b'--frame\r\n'
+			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
+			  b'\r\n\r\n')
 
 
 def send_image():
