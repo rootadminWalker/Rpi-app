@@ -86,7 +86,7 @@ def frame_image(cap):
 							print(e)
 						break
 			else:
-				raise AttributeError("Camera can't connect")
+				continue
 
 		except Exception as e:
 			if _ErrorTimes <= 3:
