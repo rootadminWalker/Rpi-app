@@ -95,11 +95,13 @@ def frame_image(cap):
 				print("Error at: " + str(e))
 			else:
 				break
-
-		_, jpg = cv2.imencode('.jpg', image)
-		yield(b'--frame\r\n'
-			  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
-			  b'\r\n\r\n')
+		try:
+			_, jpg = cv2.imencode('.jpg', image)
+			yield(b'--frame\r\n'
+				  b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
+				  b'\r\n\r\n')
+		except Exception:
+			break
 
 
 def send_image():
