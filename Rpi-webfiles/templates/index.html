@@ -76,7 +76,7 @@
 			}
 		}
 		function detect_temperature() {
-			temperature = 30;
+			temperature = temperature.replace("℃", "");
 			if (temperature >= 30) {
 				return true;
 			} else {
