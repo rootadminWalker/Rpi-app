@@ -101,7 +101,7 @@ def frame_image(cap):
 
 def send_image():
 	global users
-	_ip = "192.168.21.103"
+	_ip = "192.168.21.105"
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	try:
