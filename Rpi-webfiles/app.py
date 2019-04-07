@@ -115,7 +115,7 @@ def send_image():
 @app.route("/")
 def index():
 	global _ErrorTimes, users, _ischecked
-	users = ""
+	users = "unknown"
 	_ErrorTimes = 0
 	_ischecked = False
 	connect_arduino()
