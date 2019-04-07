@@ -101,7 +101,8 @@ def frame_image(cap):
 
 def send_image():
 	global users
-	_ip = "192.168.21.105"
+	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
+	_ip = Crawler.find(s, "<s vpan id='Walker'>", "</span>")
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	try:
