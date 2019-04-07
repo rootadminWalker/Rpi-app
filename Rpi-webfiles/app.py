@@ -26,7 +26,7 @@ face_cascade = cv2.CascadeClassifier('/home/pi/workspace/libs/haarcascade_fronta
 user = False
 _isError = False
 password = "root_administrator"
-users = ''
+users = 'unknown'
 _ErrorCameraMessage = ""
 _ErrorTimes = 0
 frame = None
@@ -101,8 +101,7 @@ def frame_image(cap):
 
 def send_image():
 	global users
-	s = Crawler.html("http://kinda.ktrackmp.com/rpi")
-	_ip = Crawler.find(s, "<span id='Walker'>", "</span>")
+	_ip = "192.168.21.103"
 	URL = "http://" + _ip + ":4000"
 	files = {'media': open("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", "rb")}
 	try:
