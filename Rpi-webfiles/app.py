@@ -50,10 +50,18 @@ def frame_image(cap):
 	os.system("rm ./static/temp.jpg")
 	image = None
 	while True:
-		ret, frame = cap.read()
-		print(frame)
+		try:
+			ret, frame = cap.read()
+			frame.copy()
 
-		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+		except Exception:
+			_isError = True
+			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
+			break
+
+		image = frame.copy()
+
+		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		try:
 			rects = face_cascade.detectMultiScale(gray, minSize=(150, 150))
 		except Exception:
@@ -85,10 +93,6 @@ def frame_image(cap):
 					print(e)
 				break
 
-		if frame is None:
-			_isError = True
-			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
-			break
 		_, jpg = cv2.imencode('.jpg', image)
 		yield (b'--frame\r\n'
 		       b'Content-Type: image/jpeg\r\n\r\n' + jpg.tobytes() +
