@@ -43,7 +43,7 @@ def connect_arduino():
 		_NoArduino = True
 		print("The arduino port is invalid. Try another port")
 
-print()
+
 def frame_image(cap):
 	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret, image
 	last_time = 0
