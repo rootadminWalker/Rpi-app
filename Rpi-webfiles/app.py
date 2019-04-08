@@ -226,6 +226,7 @@ def welcome():
 @app.route("/video_feed")
 def video_feed():
 	cap = cv2.VideoCapture(0)
+	cv2.waitKey(1000)
 	return Response(frame_image(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
