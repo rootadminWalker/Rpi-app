@@ -55,6 +55,7 @@ def frame_image(cap):
 	while True:
 		try:
 			ret, frame = cap.read()
+			print(ret, frame)
 			frame.copy()
 
 		except Exception:
