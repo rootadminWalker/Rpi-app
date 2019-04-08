@@ -15,6 +15,7 @@
 		<script type="text/javascript">
 			var processing = document.getElementById("process");
 			var dot = "";
+			var times = 0;
 			function refresh_dot() {
 				dot = dot + "."
 				if (dot == "....") {
@@ -49,10 +50,15 @@
 				});
 			}
 
-			setInterval(function() {
+			var check_username_permission = setInterval(function() {
 				refresh_dot();
 				situation_username();
+				times += 1
 			}, 1000);
+			if (times == 6) {
+				clearInterval(check_username_permission);
+				window.open("/Server_not_responsing", "_self");
+			}
 
 		</script>
 	</body>
