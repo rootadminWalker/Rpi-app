@@ -1,4 +1,4 @@
-#!/opt/miniconda3/bin/python	
+#!/opt/miniconda3/bin/python
 from flask import *
 from flask_mail import *
 import os
