@@ -133,6 +133,11 @@ def return_ball():
 	return render_template("return_ball.html", username=users)
 
 
+@app.route("/Server_not_responsing")
+def Server_not_responsing():
+	return render_template("Server_no_response.html")
+
+
 @app.route("/get_weather")
 def get_weather():
 	data = {}
