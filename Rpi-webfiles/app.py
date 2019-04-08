@@ -51,6 +51,7 @@ def frame_image(cap):
 	image = None
 	while True:
 		ret, frame = cap.read()
+		print(frame)
 
 		image = frame.copy()
 
