@@ -51,6 +51,10 @@ def frame_image(cap):
 	image = None
 	while True:
 		ret, frame = cap.read()
+		if frame is None:
+			_isError = True
+			_ErrorTimes = "CAMERA_CONNECTION_ERROR"
+			break
 		print(frame)
 
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
