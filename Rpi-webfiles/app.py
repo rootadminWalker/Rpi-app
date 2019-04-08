@@ -31,6 +31,7 @@ _isError = False
 password = "root_administrator"
 users = 'unknown'
 _ErrorCameraMessage = ""
+cap = cv2.VideoCapture(0)
 _ErrorTimes = 0
 frame = None
 _isReturn = False
@@ -225,8 +226,7 @@ def welcome():
 
 @app.route("/video_feed")
 def video_feed():
-	cap = cv2.VideoCapture(0)
-	cv2.waitKey(1000)
+	global cap
 	return Response(frame_image(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
