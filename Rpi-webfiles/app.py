@@ -53,7 +53,7 @@ def frame_image(cap):
 		ret, frame = cap.read()
 		if frame is None:
 			_isError = True
-			_ErrorTimes = "CAMERA_CONNECTION_ERROR"
+			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
 			break
 		print(frame)
 
