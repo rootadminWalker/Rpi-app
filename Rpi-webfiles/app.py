@@ -1,4 +1,7 @@
 #!/opt/miniconda3/bin/python
+# -*-coding: utf-8-*-
+# file: app.py
+
 from flask import *
 from flask_mail import *
 import os
@@ -12,7 +15,7 @@ try:
 	import Distance
 
 except Exception as e:
-	print("Server can't' run because {}".format(e))
+	print("Distance libray was not found. Please check if 'Distance.py' is here")
 
 port = "/dev/ttyACM0"
 arduino = None
