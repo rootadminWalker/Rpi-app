@@ -53,7 +53,7 @@ def frame_image(cap):
 		ret, frame = cap.read()
 		print(frame)
 
-		image = frame.copy()
+		image = frame
 
 		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		try:
