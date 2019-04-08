@@ -50,14 +50,7 @@ def frame_image(cap):
 	os.system("rm ./static/temp.jpg")
 	image = None
 	while True:
-		try:
-			ret, frame = cap.read()
-			frame.copy()
-
-		except Exception:
-			_isError = True
-			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
-			break
+		ret, frame = cap.read()
 
 		image = frame.copy()
 
