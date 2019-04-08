@@ -87,7 +87,6 @@ def frame_image(cap):
 					last_time = 0
 
 			elif time.time() - last_time > 3:
-				cap.release()
 				image = frame[y:y + h, x:x + w]
 				cv2.imwrite("/home/pi/workspace/Rpi-app/Rpi-webfiles/static/temp.jpg", image)
 				_ischecked = True
