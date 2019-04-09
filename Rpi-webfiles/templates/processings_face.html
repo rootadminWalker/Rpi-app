@@ -56,7 +56,7 @@
 				times += 1;
 			}, 1000);
 			setInterval(function() {
-				if (times == 6) {
+				if (times >= 10) {
 					clearInterval(check_username_permission);
 					window.open("/Server_not_responsing", "_self");
 				}

@@ -8,9 +8,16 @@
 <body>
     <div id="container">
         <div id="main">
-            <h1>伺服器沒有回應，請重試</h1>
-            <a class="problem_camera" href="/">返回</a>
+            <h1 id="error_message">伺服器沒有回應，請重試</h1>
+            <a class="problem_camera" href="javascript:send_fix_message()">故障</a><a class="problem_camera" href="/">返回</a>
         </div>
     </div>
+    <script>
+    	function send_fix_message() {
+            error = document.getElementById("error_message");
+            error.innerHTML = "請稍等...";
+            window.open("/send_error", "_self");
+        }
+    </script>
 </body>
 </html>

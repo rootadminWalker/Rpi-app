@@ -56,14 +56,12 @@ def frame_image(cap):
 	while True:
 		try:
 			ret, frame = cap.read()
-			print(ret, frame)
 			frame.copy()
 
 		except Exception:
 			_isError = True
 			cam = None
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
-
 			break
 
 		image = frame.copy()
@@ -137,6 +135,8 @@ def return_ball():
 
 @app.route("/Server_not_responsing")
 def Server_not_responsing():
+	global _ErrorCameraMessage
+	_ErrorCameraMessage = "SERVER_NO_RESPONSE"
 	return render_template("Server_no_response.html")
 
 
@@ -172,7 +172,7 @@ def send_error():
 	global _ErrorCameraMessage
 	topic = "Camera failed"
 	msg = Message(topic, sender="root48960@gmail.com ", recipients=["chiioleong519@gmail.com"])
-	msg.html = "<h1>The camera of the basketball machine has failed, please come and fix it</h1><br>Error code: " + _ErrorCameraMessage
+	msg.html = "<h1>The basketball machine's system has failed, please come and fix it</h1><br>Error code: " + _ErrorCameraMessage
 	mail.send(msg)
 	return render_template("error_send.html"), "message sent"
 
