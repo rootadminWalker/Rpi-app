@@ -31,7 +31,7 @@ _isError = False
 password = "root_administrator"
 users = 'unknown'
 _ErrorCameraMessage = ""
-cap = None
+cam = None
 _ErrorTimes = 0
 frame = None
 _isReturn = False
@@ -49,7 +49,7 @@ def connect_arduino():
 
 
 def frame_image(cap):
-	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret, image
+	global _ischecked, face_cascade, _isError, _ErrorCameraMessage, frame, ret, image, cam
 	last_time = 0
 	os.system("rm ./static/temp.jpg")
 	image = None
@@ -61,7 +61,9 @@ def frame_image(cap):
 
 		except Exception:
 			_isError = True
+			cam = None
 			_ErrorCameraMessage = "CAMERA_CONNECTION_ERROR"
+
 			break
 
 		image = frame.copy()
@@ -230,11 +232,11 @@ def welcome():
 
 @app.route("/video_feed")
 def video_feed():
-	global cap
-	if cap is None:
-		cap = cv2.VideoCapture(0)
+	global cam
+	if cam is None:
+		cam = cv2.VideoCapture(0)
 
-	return Response(frame_image(cap), mimetype='multipart/x-mixed-replace; boundary=frame')
+	return Response(frame_image(cam), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route("/success", methods=["GET", "POST"])
