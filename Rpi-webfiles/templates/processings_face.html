@@ -30,14 +30,14 @@
 					url: "/username",
 					data: {}
 				}).done(function(response) {
-					if (response.user != "unknown") {
-						if (response.user != "") {
+					if (response.user !== "unknown") {
+						if (response.user !== "") {
 							$.ajax({
 								method: "GET",
 								url: "/return_status_getter",
 								data: {}
 							}).done(function(response) {
-								if (response.status == "false") {
+								if (response.status === "false") {
 									window.open("/welcome", "_self");
 								} else {
 									window.open("/return_ball", "_self");

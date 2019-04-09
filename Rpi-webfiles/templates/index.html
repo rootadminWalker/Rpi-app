@@ -51,7 +51,7 @@
 		
 		
 		function get_ball(event) {
-			if (detect_raining_count() == true || detect_temperature() == true) {
+			if (detect_raining_count() === true || detect_temperature() === true) {
 				warning_text.innerHTML = "天氣不好，所以借球服務巳停止"; 
 			} else {
 				get_ball_borrow();
@@ -69,19 +69,11 @@
 		function detect_raining_count() {
 			raining_count = raining_count.replace("mm", "");
 			rainning_count = parseInt(raining_count);
-			if (rainning_count >= 0.5) {
-				return true;
-			} else {
-				return false;
-			}
+			return rainning_count >= 0.5
 		}
 		function detect_temperature() {
 			temperature = temperature.replace("℃", "");
-			if (temperature >= 30) {
-				return true;
-			} else {
-				return false;
-			}
+			return temperature >= 30
 		}
 		function return_ball_back(event) {
 			$.ajax({
