@@ -119,10 +119,11 @@ def send_image():
 
 @app.route("/")
 def index():
-	global _ErrorTimes, users, _ischecked
+	global _ErrorTimes, users, _ischecked, _ErrorCameraMessage
 	users = "unknown"
 	_ErrorTimes = 0
 	_ischecked = False
+	_ErrorCameraMessage = ""
 	connect_arduino()
 	return render_template("index.html")
 
