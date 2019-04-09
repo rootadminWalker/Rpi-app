@@ -55,11 +55,13 @@
 				situation_username();
 				times += 1;
 			}, 1000);
-			if (times == 6) {
-				clearInterval(check_username_permission);
-				window.open("/Server_not_responsing", "_self");
-			}
+			setInterval(function() {
+				if (times == 6) {
+					clearInterval(check_username_permission);
+					window.open("/Server_not_responsing", "_self");
+				}
+			}, 1000);
 
 		</script>
-	</body>
-</html>
+		</body>
+	</html>
