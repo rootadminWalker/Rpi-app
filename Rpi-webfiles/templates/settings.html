@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include 'ico.html' %}
+    {% from "Toggle_switch.html" import toggle_switch %}
+</head>
+<body>
+    <div id="container">
+        <div class="settings-bar">
+            <h1>Settings</h1>
+            <ul class="settings-list">
+                <li><p class="Settings-messages">Trun on borrow settings</p><span>{{ toggle_switch() }}</span></li>
+                <hr>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
