@@ -1,0 +1,13 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.toggle-bin {
+    width: 80px;
+    height: 40px;
+    background: gray;
+    border-radius: 30px;
+    padding: 5px;
+}
