@@ -279,9 +279,14 @@ def password_get():
 	return jsonify(data)
 
 
+@app.route("/test")
+def test():
+	return render_template("test.html")
+
+
 @app.route("/access")
 def access():
-	return render_template("access.html")
+	return render_template("settings.html")
 
 
 @app.route("/denied")

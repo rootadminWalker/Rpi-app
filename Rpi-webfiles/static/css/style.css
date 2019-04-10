@@ -235,3 +235,26 @@ h1 {
     clear: both;
     margin-right:15px;
 }
+
+.settings-bar {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background: rgb(0, 0, 0, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.settings-list {
+    list-style: none;
+}
+
+.settings-list > p {
+    position: relative;
+    float: left;
+}
+.setting-list > span {
+    position: absolute;
+    float: right;
+}
