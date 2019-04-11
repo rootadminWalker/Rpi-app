@@ -12,6 +12,7 @@ html, body, button{
 	width: 600px;
 	height: 300px;
 	margin-left: 50%;
+    margin-top: 50%;
 	position: relative;
 	transform: translate(-50%, 0%);
 	text-align: center;
