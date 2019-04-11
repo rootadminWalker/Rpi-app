@@ -232,9 +232,7 @@ h1 {
 
 .settings-list > p {
     position: relative;
-    float: left;
 }
 .setting-list > span {
     position: absolute;
-    float: right;
 }
