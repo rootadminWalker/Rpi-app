@@ -237,7 +237,7 @@ h1 {
     position: relative;
     left: 50%;
 }
-.settings-bar.seperator-line {
+.seperator-line {
     height: 2px;
     background-color: rgb(255, 255, 255, 0.8);
     width: 50%;
