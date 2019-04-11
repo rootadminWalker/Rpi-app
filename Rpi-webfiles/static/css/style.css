@@ -233,7 +233,7 @@ h1 {
 
 .settings-list > p {
     position: absolute;
-    font-family: Comic Sans MS;
+    font-family: "Comic Sans MS";
 }
 .settings-bar > span {
     position: relative;
