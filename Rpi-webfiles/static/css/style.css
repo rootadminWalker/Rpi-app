@@ -235,8 +235,8 @@ h1 {
     position: absolute;
 }
 .settings-bar > span {
-    position: relative;
-    left: 50%;
+    position: absolute;
+    right: 0;
 }
 .seperator-line {
     height: 1px;
