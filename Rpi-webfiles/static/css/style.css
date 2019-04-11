@@ -235,4 +235,5 @@ h1 {
 }
 .setting-list > span {
     position: absolute;
+    left: 50%;
 }
