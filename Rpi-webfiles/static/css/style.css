@@ -231,7 +231,7 @@ h1 {
 }
 
 .settings-list > p {
-    position: relative;
+    position: absolute;
 }
 .settings-bar > span {
     position: relative;
