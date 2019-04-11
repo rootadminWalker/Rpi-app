@@ -228,6 +228,7 @@ h1 {
 
 .settings-list {
     list-style: none;
+    padding-right: 40px;
 }
 
 .settings-list > p {
