@@ -233,7 +233,7 @@ h1 {
 .settings-list > p {
     position: relative;
 }
-.settings-list > span {
+.settings-bar > span {
     position: relative;
     left: 50%;
 }
