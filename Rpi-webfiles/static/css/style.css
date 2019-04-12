@@ -231,7 +231,7 @@ h1 {
     padding-right: 40px;
 }
 
-.settings-list > p {
+.settings-list > .Settings-messages {
     position: relative;
 }
 .settings-bar > span {
