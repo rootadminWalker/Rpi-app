@@ -232,7 +232,7 @@ h1 {
 }
 
 .Settings-messages {
-    position: absolute;
+    position: relative;
 }
 
 .seperator-line {
