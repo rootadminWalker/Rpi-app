@@ -186,11 +186,13 @@ h1 {
     border-radius: 10px;
     width: 100%;
     margin-top: 10px;
+    transition: all 0.5s ease-in-out;
 }
 
 .password_box #Login_button:hover {
     background-color: rgb(0, 191, 255, 0.5);
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 .password_box #Forgotten {
