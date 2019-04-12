@@ -231,13 +231,10 @@ h1 {
     padding-right: 40px;
 }
 
-.settings-list > .Settings-messages {
+.Settings-messages {
     position: relative;
 }
-.settings-bar > span {
-    position: absolute;
-    right: 0;
-}
+
 .seperator-line {
     height: 1px;
     background-color: rgb(255, 255, 255, 0.5);
