@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include 'ico.html' %}
+</head>
+<body>
+    <div id="container">
+        <div id="sign_up-main">
+            <h1>Please look at the camera</h1>
+            <img src="{{url_for('sign_up_feed')}}">
+            <button id="forward-sign_up" onclick="Start_sign_up(event)">forward</button>
+            <a class="cancel" href="/">back</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function Start_sign_up(event) {
+            window.open("/Loading_new_user", "_self");
+        }
+    </script>
+</body>
+</html>

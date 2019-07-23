@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        {% include 'ico.html' %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    </head>
+  <body>
+    <div id="container">
+        <div id="Loading-main">
+            <div class="loading">
+              <span>Processing...</span>
+            </div>
+        </div>
+    </div>
+  <script type="text/javascript">
+      $.ajax({
+          url: "/Loading_new_user_status",
+          type: "GET",
+          data: {}
+      }).done(function (response) {
+          if (response.loading_status == "true") {
+              window.open("/Add_success", "_self");
+          }
+      });
+  </script>
+  </body>
+</html>

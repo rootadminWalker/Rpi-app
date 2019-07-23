@@ -15,31 +15,27 @@
     </div>
     <script type="text/javascript">
         var get = document.getElementById("get_ball");
-			var dot = "";
-			function refresh_dot() {
-			    dot = dot + "."
-				if (dot == "....") {
-					dot = "";
-				}
-				get.innerHTML = "請放入球" + dot;
-			}
-			function get_distance() {
-			    $.ajax({
-			        type: "GET",
-			        url: "/ultrasonic_distance",
-			        data: {}
-			    }).done(function(response) {
-			        if (response.distance <= 5) {
-			            window.open("/return_success", "_self");
-			        }
-			    });
-			}
-		setInterval(function() {
-			refresh_dot();
-		}, 1000);
-		setInterval(function() {
-		    get_distance();
-		}, 100);
-    </script>
+        var dot = "";
+        var times = 0
+        function refresh_dot() {
+            dot = dot + "."
+            if (dot == "....") {
+                dot = "";
+            }
+            get.innerHTML = "請放入球" + dot;
+        }
+        function get_distance() {
+            if (times == 6) {
+                window.open('/return_success', "_self")
+            }
+            times++
+        }
+        setInterval(function() {
+            refresh_dot();
+        }, 1000);
+        setInterval(function() {
+            get_distance();
+        }, 1000);
+        </script>
 </body>
 </html>

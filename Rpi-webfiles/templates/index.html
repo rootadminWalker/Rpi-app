@@ -17,14 +17,13 @@
 					<p id="type">...</p>
 					<p id="rain">...</p>
 				</div>
-				<p id="warning">天氣資訊來自<a id="from_place" href="">http://home.puiching.edu.mo/~pcama/</a>天氣資訊最後更新: ...</p>
+				<p id="warning">天氣資訊來自<a id="from_place" href="">http://home.puiching.edu.mo/~pcama/</a></p>
 			</div>
 		</div>
 	<script type="text/javascript">
 		var temp = document.getElementById("temp");
 		var type = document.getElementById("type");
 		var rain = document.getElementById("rain");
-		var warning_text = document.getElementById("warning");
 		var rainning_count, temperature;
 
 		$.ajax({
@@ -42,7 +41,6 @@
 					temp.innerHTML = response.temp;
 					type.innerHTML = response.type;
 					rain.innerHTML = response.rain;
-					warning_text.innerHTML = "天氣資訊來自<a id='from_place' href=''>http://home.puiching.edu.mo/~pcama/</a>，天氣資訊最後" + response.last_update_time;
 					raining_count = rain.innerHTML;
 					temperature = temp.innerHTML;
 			});
@@ -51,11 +49,7 @@
 		
 		
 		function get_ball(event) {
-			if (detect_raining_count() === true || detect_temperature() === true) {
-				warning_text.innerHTML = "天氣不好，所以借球服務巳停止"; 
-			} else {
-				get_ball_borrow();
-			}
+            get_ball_borrow();
 		}
 
 		function get_ball_borrow(event) {

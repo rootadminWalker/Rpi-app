@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     {% include 'ico.html' %}
-    {% from "Toggle_switch.html" import toggle_switch %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 <body>
     <div id="container">
         <div class="settings-bar">
-            <h1>Settings</h1>
-            <ul class="settings-list">
-                <li><p class="Settings-messages">Disable or enable borrow features</p><span class="Toggle_button">{{ toggle_switch() }}</span></li>
-                <div class="seperator-line"></div>
-                <li><p class="Settings-messages">Disable or enable return ball feature</p><span class="Toggle_button">{{ toggle_switch() }}</span></li>
-                <div class="seperator-line"></div>
-                <li><h1 class="Settings-messages">Add new user</h1><a class="sign_up">Start</a></li>
-                <div class="seperator-line"></div>
-                <a href="/" class="cancel">Cancel</a>
-            </ul>
+            <h1>enter the new username</h1>
+            <input type="text" id="new-user" placeholder="Enter your username" name="new_username">
+            <input type="submit" value="Sign up" onclick="send_username(event)">
+            <p id="warning-message" style="color: red">Please enter a new username</p>
         </div>
     </div>
+    <script type="text/javascript">
+        function send_username(event) {
+            var new_value = document.getElementById("new-user");
+            var warning = document.getElementById('warning-message');
+            if (new_value.value != "") {
+                $.ajax({
+                    url: "/get_username_setter",
+                    type: "POST",
+                    data: {"new_user": new_value.value}
+                }).done(function () {
+                    window.open("/sign_up", "_self")
+                });
+            } else {
+                warning.style['display'] = "block";
+            }
+        }
+    </script>
 </body>
 </html>

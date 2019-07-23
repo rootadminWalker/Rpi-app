@@ -37,10 +37,10 @@
 			setInterval(function() {
 				auto_checking();
 				auto_check_camera();
-				if (check == true){
+				if (check === true){
 					window.open("/recognize_image", "_self");
 				}
-				if (empty == true){
+				if (empty === true){
 					window.open("/camera_is_empty", "_self");
 				}
 			}, 1000);
