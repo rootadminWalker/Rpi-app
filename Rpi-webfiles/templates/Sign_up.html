@@ -9,7 +9,7 @@
     <div id="container">
         <div id="main">
             <h1>Please look at the camera</h1>
-            <p>Recommend images: 4, Images captured: <span id="a-message">0</span></p>
+            <p>Recommend images: 5, Images captured: <span id="a-message">0</span></p>
             <img src="{{url_for('sign_up_feed')}}" alt="Face image">
             <div style="width: 100%; text-align: center;">
                 <button class="forward-sign_up" onclick="Capture_image(event)">Capture</button>
@@ -19,7 +19,7 @@
     </div>
     <script type="text/javascript">
         let a_message = document.getElementById("a-message");
-        let amount = 0;
+        let amount = 1;
 
         function Start_sign_up(event) {
             window.open("/Loading_new_user", "_self");
