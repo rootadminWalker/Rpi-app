@@ -1,6 +1,7 @@
 body {
-	margin: 0;
+    margin: 0;
 	background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url("/static/img/background.jpg");
+
 }
 
 html, body{
@@ -9,7 +10,7 @@ html, body{
 }
 
 #main {
-	width: 600px;
+	width: 640px;
 	height: 300px;
 	margin-left: 50%;
     margin-top: 5%;
@@ -27,7 +28,7 @@ html, body{
     font-weight: 500;
 }
 
-#main button {
+#main .user-selections {
 	width: 200px;
 	height: 200px;
 	font-size: 48px;
@@ -43,17 +44,17 @@ html, body{
     transition: all 0.5s ease-in-out;
 }
 
-#main button:hover {
+#main .user-selections:hover {
     background-color: rgb(255, 140, 0, 0.8);
     transition: all 0.5s ease-in-out;
 }
 
 #main .setting {
-	width: 50px;
+	width: 80px;
 	height: 50px;
 	font-size: 16px;
 	position: absolute;
-	right: 25px;
+	right: 30px;
 	top: 214px;
 }
 
@@ -83,7 +84,7 @@ html, body{
 #weather {
 	width: 100px;
 	position: absolute;
-	left: 0;
+	left: 30px;
 	top: 64px;
 	font-size: 24px;
 	color: white;
@@ -98,6 +99,7 @@ html, body{
     text-decoration: none;
     border-radius: 15px;
     transition: all 0.5s ease-in-out;
+    margin: auto 10px;
 }
 .problem_camera:hover {
     background-color: rgb(255, 140, 0, 0.8);
@@ -151,13 +153,13 @@ html, body{
     transform: translate(-50%, -50%);
     padding: 70px 30px;
     font-family: sans-serif;
+    font-weight: 500;
 }
 
 .password_box h1 {
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
-    font-weight: 500;
     text-transform: uppercase;
 }
 
@@ -291,22 +293,6 @@ html, body{
     display: none;
 }
 
-.seperator-line {
-    height: 1px;
-    background-color: rgb(255, 255, 255, 0.5);
-}
-
-#sign_up-main {
-    width: 600px;
-	height: 300px;
-	margin-left: 50%;
-    margin-top: 5%;
-	position: relative;
-	transform: translate(-50%, 0%);
-	text-align: center;
-    font-family: sans-serif;
-}
-
 .sign_up {
     font-size: 24px;
     color: white;
@@ -323,8 +309,7 @@ html, body{
     cursor: pointer;
 }
 
-#forward-sign_up {
-    position: relative;
+.forward-sign_up {
     background: none;
     border: 2px solid #2ecc71;
     font-size: 28px;
@@ -332,39 +317,18 @@ html, body{
     padding: 20px;
     width: 200px;
     text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-    display: block;
     margin: 20px auto;
     border-radius: 15px;
+    transition: all 0.1s ease-in-out;
 }
 
-#forward-sign_up:after {
-    content: "";
+.forward-sign_up:hover {
     background: #2ecc71;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-}
-
-#forward-sign_up:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-}
-
-#sign_up-main h1 {
-    font-weight: 500;
-    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
 }
 
 .loading {
@@ -427,3 +391,6 @@ html, body{
     justify-content: center;
 }
 
+#error_message {
+    font-size: 24px;
+}
