@@ -1,0 +1,14 @@
+{
+  "name": "basketball_management_system",
+  "version": "1.0.0",
+  "dependencies": {
+    "python-shell": "^1.0.8"
+  },
+  "devDependencies": {
+    "electron": "^6.0.7"
+  },
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "license": "MIT"
+}

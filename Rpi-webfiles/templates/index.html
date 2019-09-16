@@ -31,7 +31,7 @@
 			url: "/username",
 			data: {}
 		});
-		
+
 		function refresh_weather() {
 			$.ajax({
 				url: "/get_weather",
@@ -46,8 +46,8 @@
 			});
 		}
 		setInterval(refresh_weather(), 1000 * 60 * 60);
-		
-		
+
+
 		function get_ball(event) {
             get_ball_borrow();
 		}
@@ -82,5 +82,5 @@
 		}
 
 	</script>
-	</body>	
+	</body>
 </html>
